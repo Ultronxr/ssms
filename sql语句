@@ -1,0 +1,9 @@
+创建数据库
+CREATE DATABASE `ssms` DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+
+创建数据库表
+CREATE TABLE test(
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
