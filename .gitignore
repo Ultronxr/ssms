@@ -1,2 +1,4 @@
 *.properties
 *.xml
+/test/
+/target/
