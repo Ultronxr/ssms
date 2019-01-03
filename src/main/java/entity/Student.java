@@ -18,6 +18,8 @@ public class Student {
     String politicalStatus;
     double gpa;
 
+    public Student(){}
+
     public String getId() {
         return id;
     }

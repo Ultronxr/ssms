@@ -1,6 +1,6 @@
 package entity;
 
-public class User {
+public class Admin {
     String account;
     String password;
     int id;

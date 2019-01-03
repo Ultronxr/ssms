@@ -1,7 +1,7 @@
 package action;
 
-import dao.Impl.UserDaoImpl;
-import dao.UserDao;
+import dao.impl.AdminDaoImpl;
+import dao.AdminDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +14,13 @@ import java.io.PrintWriter;
 @WebServlet("/login")
 public class LoginAction extends HttpServlet {
 
-    private UserDao userDao = new UserDaoImpl();
+    private AdminDao adminDao = new AdminDaoImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");
 
-        if(userDao.LoginStatus(request.getParameter("username"), request.getParameter("password"))){
+        if(adminDao.getLoginStatus(request.getParameter("username"), request.getParameter("password"))){
             request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
         }
         else{

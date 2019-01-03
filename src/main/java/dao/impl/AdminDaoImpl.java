@@ -1,6 +1,6 @@
-package dao.Impl;
+package dao.impl;
 
-import dao.UserDao;
+import dao.AdminDao;
 import utils.MysqlUtils;
 
 import java.sql.Connection;
@@ -8,8 +8,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDaoImpl implements UserDao {
-    public boolean LoginStatus(String account, String password){
+public class AdminDaoImpl implements AdminDao {
+
+    @Override
+    public boolean getLoginStatus(String account, String password){
+
         boolean flag = false;
         if(account == null) account="";
         if(password == null) password = "";
@@ -28,7 +31,8 @@ public class UserDaoImpl implements UserDao {
             else
                 flag = true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("[x] src.main.java.dao.impl-AdminDaoImpl 查询管理员账户时，连接数据库出错！");
         } finally{
             MysqlUtils.closeConnection(rs, ps, con);
         }
