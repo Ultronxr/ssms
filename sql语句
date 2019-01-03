@@ -2,8 +2,38 @@
 CREATE DATABASE `ssms` DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
 
 创建数据库表
-CREATE TABLE test(
-
+#管理员表
+CREATE TABLE Admin(
+    id int auto_increment PRIMARY KEY NOT NULL,
+    account varchar(255) NOT NULL,
+    password varchar(255) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+#学生选课表
+CREATE TABLE StudentCourse(
+    student_id int NOT NULL,
+    course_id int NOT NULL,
+    course_name varchar(255) NOT NULL,
+    course_grade int NOT NULL, #成绩
+    credit float NOT NULL, #学分
+    PRIMARY KEY(student_id, course_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+#课程信息表
+CREATE TABLE Course(
+    id int NOT NULL PRIMARY KEY,
+    school_year varchar(255) NOT NULL, #开课学年
+    semester int NOT NULL, #学期
+    name varchar(255) NOT NULL, #课程名称
+    institute varchar(255) NOT NULL, #学院
+    category varchar(255) NULL, #分类
+    credit float NOT NULL, #学分
+    teacher varchar(255) NOT NULL,  #教师
+    class_time varchar(255) NULL, #上课时间
+    class_place varchar(255) NULL #上课地点
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+
 
 
