@@ -9,6 +9,26 @@ CREATE TABLE Admin(
     password varchar(255) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8
 
+#创建学生表
+CREATE TABLE Student(
+	id CHAR(11) NOT NULL PRIMARY KEY,#学号
+	name VARCHAR(255) NOT NULL,#姓名
+	age INT NOT NULL,#年龄
+	institute VARCHAR(255) NOT NULL,#学院
+	major VARCHAR(255) NOT NULL,#专业
+	class VARCHAR(255) NOT NULL,#班级
+	sex VARCHAR(10) NOT NULL,#性别
+    birthday VARCHAR(255),#出生日期
+	startTime VARCHAR(255) NOT NULL,#入学时间
+	endTime VARCHAR(255) NOT NULL,#预计毕业时间
+	credit INT,#已获学费
+	source VARCHAR(255),#生源地
+	nationality VARCHAR(255),#民族
+	type VARCHAR(255) NOT NULL,#学生类型（普通本科生、专科生）
+	politicalStatus VARCHAR(255),#政治面貌
+	gpa DOUBLE NOT NULL#平均绩点
+)ENGINE=InnoDB DEFAULT CHARSET=utf8
+
 #学生选课表
 CREATE TABLE StudentCourse(
     student_id int NOT NULL,
@@ -32,6 +52,8 @@ CREATE TABLE Course(
     class_time varchar(255) NULL, #上课时间
     class_place varchar(255) NULL #上课地点
 )ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
 
 
 
