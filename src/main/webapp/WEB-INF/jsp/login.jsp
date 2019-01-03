@@ -29,7 +29,7 @@
     <div class="mainbody">
         <div id="login" class="login" style="">
             <%--<div class="login_icon"></div>--%>
-            <form action="<%=basePath %>index.jsp" class="login_form" method="post">
+            <form action="<%=basePath %>login" class="login_form" method="post">
                 <div class="ctitle">用户登录</div>
                 <div class="content">
                     <div class="comm">
