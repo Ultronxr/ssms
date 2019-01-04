@@ -19,8 +19,12 @@ public class LoginAction extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");
-
-        if(adminDao.getLoginStatus(request.getParameter("username"), request.getParameter("password"))){
+        String name=(String)request.getParameter("username");
+        String password=(String)request.getParameter("password");
+        System.out.println("loginname:"+name);
+        System.out.println("loginpassword:password"+password);
+        System.out.println("\n");
+        if(adminDao.getLoginStatus(name, password)){
             request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
         }
         else{

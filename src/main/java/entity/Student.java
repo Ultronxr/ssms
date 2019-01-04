@@ -147,4 +147,24 @@ public class Student {
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
+
+    public String toString(){
+        return "{\"id:\""+id
+                +",\"name\":"+name
+                +",\"age\":"+age
+                +",\"sex\":"+sex
+                +",\"institute\":"+institute
+                +",\"major\":"+major
+                +",\"studentClass\":"+studentClass
+                +",\"birthday\":"+birthday
+                +",\"startTime\":"+startTime
+                +",\"endTIme\":"+endTIme
+                +",\"credit\":"+credit
+                +",\"source\":"+source
+                +",\"nationality\":"+nationality
+                +",\"type\":"+type
+                +",\"politicalStatus\":"+politicalStatus
+                +",\"gpa\":"+gpa
+                +"}";
+    }
 }
