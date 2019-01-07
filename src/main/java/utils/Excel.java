@@ -1,11 +1,16 @@
 package utils;
 import dao.StudentDao;
+import dao.impl.StudentDaoImpl;
 import entity.Student;
 
 import java.util.ArrayList;
 import java.util.List;
 import jxl.Sheet;
 import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
 import java.io.File;
 
 public class Excel {
@@ -38,15 +43,76 @@ public class Excel {
                     String politicalStatus=rs.getCell(j++, i).getContents();
                     String gpa=rs.getCell(j++, i).getContents();
 
-
+                    Student st=new Student(id,name,Integer.parseInt(age),sex,insititute,major,studentClass,birthday,startTime,endTime,Double.parseDouble(credit),source,nationality,type,politicalStatus,Double.parseDouble(gpa));
+                    list.add(st);
                     //list.add(new Student(Integer.parseInt(id), name, sex, Integer.parseInt(num)));
                 }
             }
+            System.out.println("find "+ list.size()+" students in excel!");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return list;
+    }
+    public static boolean dbToExcel(String fileName){
+        try {
+            WritableWorkbook wwb = null;
+            // 创建可写入的Excel工作簿
+            File file=new File(fileName);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            //以fileName为文件名来创建一个Workbook
+            wwb = Workbook.createWorkbook(file);
 
+            // 创建工作表
+            WritableSheet ws = wwb.createSheet("Test Shee 1", 0);
+
+            //查询数据库中所有的数据
+            //List<StuEntity> list= StuService.getAllByDb();
+            //要插入到的Excel表格的行号，默认从0开始
+            Label labelSchoolYear= new Label(0, 0, "学年");//表示第
+            Label labelSemester= new Label(1, 0, "学期");
+            Label labelCourseId= new Label(2, 0, "课程代码");
+            Label labelCourseName= new Label(3, 0, "课程名称");
+            Label labelCategory=new Label(4,0,"课程性质");
+            Label labelCredit=new Label(4,0,"学分");
+            Label labelScore=new Label(4,0,"成绩");
+            Label labelTeacher=new Label(4,0,"任课教师");
+            Label labelStudentId=new Label(4,0,"学号");
+            Label labelStudentName=new Label(4,0,"姓名");
+            Label labelSex=new Label(4,0,"性别");
+            Label labelType=new Label(4,0,"学生类别");
+            Label labelInstitute=new Label(4,0,"学院");
+            Label labelMajor=new Label(4,0,"专业");
+            Label label=new Label(4,0,"年级");
+            Label labelClass=new Label(4,0,"班级");
+//            ws.addCell(labelId);
+//            ws.addCell(labelName);
+//            ws.addCell(labelSex);
+//            ws.addCell(labelNum);
+//            for (int i = 0; i < list.size(); i++) {
+//
+//                Label labelId_i= new Label(0, i+1, list.get(i).getId()+"");
+//                Label labelName_i= new Label(1, i+1, list.get(i).getName());
+//                Label labelSex_i= new Label(2, i+1, list.get(i).getSex());
+//                Label labelNum_i= new Label(3, i+1, list.get(i).getNum()+"");
+//                ws.addCell(labelId_i);
+//                ws.addCell(labelName_i);
+//                ws.addCell(labelSex_i);
+//                ws.addCell(labelNum_i);
+//            }
+
+            //写进文档
+            wwb.write();
+            // 关闭Excel工作簿对象
+            wwb.close();
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return true;
     }
 }
