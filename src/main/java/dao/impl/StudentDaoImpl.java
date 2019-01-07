@@ -36,7 +36,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setEndTIme(rs.getString("endTime"));
+                student.setEndTime(rs.getString("endTime"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
@@ -52,6 +52,7 @@ public class StudentDaoImpl implements StudentDao {
         }
         return student;
     }
+    @Override
     public Student getStudentInfoByName(String name){
         Student student = null;
         String sql="SELECT * FROM Student WHERE name=?";
@@ -73,7 +74,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setEndTIme(rs.getString("endTime"));
+                student.setEndTime(rs.getString("endTime"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
@@ -89,6 +90,7 @@ public class StudentDaoImpl implements StudentDao {
         }
         return student;
     }
+    @Override
     public List<Student> getAllStudent(){
         List students=new ArrayList<Student>();
         String sql="SELECT * FROM Student ORDER BY id;";
@@ -111,7 +113,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setEndTIme(rs.getString("endTime"));
+                student.setEndTime(rs.getString("endTime"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
@@ -127,5 +129,39 @@ public class StudentDaoImpl implements StudentDao {
             MysqlUtils.closeConnection(rs, ps, con);
         }
         return students;
+    }
+
+    @Override
+    public boolean insertStudent(Student student) {
+        String sql="INSERT into Student VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        //INSERT into Student VALUES("16401010225","陈鸿宇",21,"男","电子与信息","计科","162","1998-01-01","2016-09-15","2020-01-01",88,"浙江","汉","普通本科生","团员","3.75")
+        Connection con=MysqlUtils.getConnection();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, student.getId());
+            ps.setString(2, student.getName());
+            ps.setString(3, Integer.toString(student.getAge()));
+            ps.setString(4, student.getSex());
+            ps.setString(5, student.getInstitute());
+            ps.setString(6, student.getMajor());
+            ps.setString(7, student.getStudentClass());
+            ps.setString(8, student.getBirthday());
+            ps.setString(9, student.getStartTime());
+            ps.setString(10, student.getEndTime());
+            ps.setString(11, Integer.toString(student.getCredit()));
+            ps.setString(12, student.getSource());
+            ps.setString(13, student.getNationality());
+            ps.setString(14, student.getType());
+            ps.setString(14, student.getPoliticalStatus());
+            ps.setString(14, Double.toString(student.getGpa()));
+            ps.executeQuery();
+        }catch (SQLException e){
+            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl 插入学生出错！");
+        }finally {
+            MysqlUtils.closeConnection(rs, ps, con);
+        }
+        return false;
     }
 }
