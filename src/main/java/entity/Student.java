@@ -10,14 +10,14 @@ public class Student {
     String studentClass;
     String birthday;
     String startTime;
-    String endTime;
+    String grade;
     double credit;
     String source;
     String nationality;
     String type;
     String politicalStatus;
     double gpa;
-    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime, String endTIme, double credit, String source, String nationality, String type, String politicalStatus, double gpa) {
+    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime, String grade, double credit, String source, String nationality, String type, String politicalStatus, double gpa) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -27,7 +27,7 @@ public class Student {
         this.studentClass = studentClass;
         this.birthday = birthday;
         this.startTime = startTime;
-        this.endTime = endTime;
+        this.grade = grade;
         this.credit = credit;
         this.source = source;
         this.nationality = nationality;
@@ -111,19 +111,19 @@ public class Student {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public double getCredit() {
         return credit;
     }
 
-    public void setCredit(double credit) {
+    public void setCredit(int credit) {
         this.credit = credit;
     }
 
@@ -177,7 +177,7 @@ public class Student {
                 +",\"studentClass\":"+studentClass
                 +",\"birthday\":"+birthday
                 +",\"startTime\":"+startTime
-                +",\"endTIme\":"+endTime
+                +",\"grade\":"+grade
                 +",\"credit\":"+credit
                 +",\"source\":"+source
                 +",\"nationality\":"+nationality
