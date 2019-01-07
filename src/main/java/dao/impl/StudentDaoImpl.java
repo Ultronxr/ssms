@@ -52,6 +52,8 @@ public class StudentDaoImpl implements StudentDao {
         }
         return student;
     }
+
+
     @Override
     public Student getStudentInfoByName(String name){
         Student student = null;
@@ -90,6 +92,47 @@ public class StudentDaoImpl implements StudentDao {
         }
         return student;
     }
+
+    @Override
+    public List<Student> getStudentInfoByCon(String startTime, String major, String studentClass){
+        List students = new ArrayList<Student>();
+        String sql = "";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Student student=new Student();
+                student = new Student();
+                student.setId(rs.getString("id"));
+                student.setName(rs.getString("name"));
+                student.setAge(rs.getInt("age"));
+                student.setSex(rs.getString("sex"));
+                student.setInstitute(rs.getString("institute"));
+                student.setMajor(rs.getString("major"));
+                student.setStudentClass(rs.getString("studentClass"));
+                student.setBirthday(rs.getString("birthday"));
+                student.setStartTime(rs.getString("startTime"));
+                student.setGrade(rs.getString("endTime"));
+                student.setCredit(rs.getInt("credit"));
+                student.setSource(rs.getString("source"));
+                student.setNationality(rs.getString("nationality"));
+                student.setType(rs.getString("type"));
+                student.setPoliticalStatus(rs.getString("politicalStatus"));
+                student.setGpa(rs.getDouble("gpa"));
+                students.add(student);
+            }
+
+        }catch (SQLException e){
+            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl-getStudentInfoByCon 按条件搜索学生信息出错！");
+        }finally {
+            MysqlUtils.closeConnection(rs, ps, con);
+        }
+        return students;
+    }
+
     @Override
     public List<Student> getAllStudent(){
         List students=new ArrayList<Student>();
@@ -165,6 +208,7 @@ public class StudentDaoImpl implements StudentDao {
         return false;
     }
 
+    @Override
     public boolean delStudentById(String id){
         String sql="DELETE FROM Student WHERE id=?";
         Connection con=MysqlUtils.getConnection();
