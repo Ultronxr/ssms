@@ -10,13 +10,32 @@ public class Student {
     String studentClass;
     String birthday;
     String startTime;
-    String endTIme;
+    String endTime;
     int credit;
     String source;
     String nationality;
     String type;
     String politicalStatus;
     double gpa;
+    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime, String endTIme, int credit, String source, String nationality, String type, String politicalStatus, double gpa) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.institute = institute;
+        this.major = major;
+        this.studentClass = studentClass;
+        this.birthday = birthday;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.credit = credit;
+        this.source = source;
+        this.nationality = nationality;
+        this.type = type;
+        this.politicalStatus = politicalStatus;
+        this.gpa = gpa;
+    }
+
 
     public Student(){}
 
@@ -92,12 +111,12 @@ public class Student {
         this.startTime = startTime;
     }
 
-    public String getEndTIme() {
-        return endTIme;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEndTIme(String endTIme) {
-        this.endTIme = endTIme;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public int getCredit() {
@@ -158,7 +177,7 @@ public class Student {
                 +",\"studentClass\":"+studentClass
                 +",\"birthday\":"+birthday
                 +",\"startTime\":"+startTime
-                +",\"endTIme\":"+endTIme
+                +",\"endTIme\":"+endTime
                 +",\"credit\":"+credit
                 +",\"source\":"+source
                 +",\"nationality\":"+nationality
