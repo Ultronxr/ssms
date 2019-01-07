@@ -164,4 +164,22 @@ public class StudentDaoImpl implements StudentDao {
         }
         return false;
     }
+
+    public boolean delStudentById(String id){
+        String sql="DELETE FROM Student WHERE id=?";
+        Connection con=MysqlUtils.getConnection();
+        PreparedStatement ps=null;
+        int result = -1;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, id);
+            result = ps.executeUpdate();
+        }catch (SQLException e){
+            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl 删除学生出错！");
+        }finally {
+            MysqlUtils.closeConnection(null, ps, con);
+        }
+        if(result >= 1) return true;
+        else return false;
+    }
 }
