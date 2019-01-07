@@ -136,3 +136,25 @@ body{
     padding-left: 10px;
     width: 280px;
 }
+
+table{
+    width: 100%;
+    font-family: consolas;
+    font-size: 17px;
+    border-collapse: collapse;
+    border:1px solid #0094ff;
+}
+table th{
+    padding: .5em .5em;
+    font-weight: bold;
+    background: #7a7c7b;
+    color: #fff;
+    border:1px solid #0094ff;
+    text-align: center;
+}
+table td{
+    padding: .5em .5em;
+    border-bottom: solid 1px #ccc;
+    border:1px solid #0094ff;
+    text-align: center;
+}

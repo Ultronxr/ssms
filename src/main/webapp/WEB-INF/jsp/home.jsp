@@ -16,10 +16,18 @@
 <html>
 <head>
     <title>首页</title>
+
+    <script src="jquery3.3.1-jqueryui1.12.1/jquery-3.3.1.js" charset="utf-8"></script>
+    <script src="jquery3.3.1-jqueryui1.12.1/DataTables-1.10.15/media/js/jquery.js" charset="utf-8"></script>
+    <script src="jquery3.3.1-jqueryui1.12.1/DataTables-1.10.15/media/js/jquery.dataTables.js" charset="utf-8"></script>
+    <script src="jquery3.3.1-jqueryui1.12.1/jquery-ui.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="jquery3.3.1-jqueryui1.12.1/DataTables-1.10.15/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="jquery3.3.1-jqueryui1.12.1/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="css/home.css" >
+
 </head>
-<link type="text/css" rel="stylesheet" href="css/home.css" >
-<script src="jquery3.3.1-jqueryui1.12.1/jquery-3.3.1.js" charset="utf-8"></script>
-<script src="jquery3.3.1-jqueryui1.12.1/jquery-ui.js" charset="utf-8"></script>
+
 <body>
     <div class="header">
         <div class="head_txt">学籍信息</div>
@@ -44,6 +52,34 @@
             <div id="jbxx" style="display: block">
                 <div class="content_box_title">基本信息</div>
                 <div class="information">
+
+                    <table id="content_table">
+                        <thead>
+                        <tr>
+                            <th>卡号</th>
+                            <th>学号</th>
+                            <th>操作</th>
+                            <th>金额</th>
+                            <th>时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%--<c:if test="${!=null}">--%>
+                            <%--<c:forEach items="${}" var="">--%>
+                                <tr>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                    <td>123</td>
+                                </tr>
+                            <%--</c:forEach>--%>
+                        <%--</c:if>--%>
+                        </tbody>
+                    </table>
+
+
+
                 </div>
             </div>
             <div id="xjxx" style="display: none">
@@ -60,6 +96,10 @@
     <div class="footer"></div>
 </body>
 <script>
+    $(document).ready( function () {
+        $('#content_table').DataTable();
+    } );
+
     function jbxx_show() {
         $("#jbxx").css("display","block");
         $("#xjxx").css("display","none");

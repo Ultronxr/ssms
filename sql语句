@@ -31,7 +31,7 @@ CREATE TABLE Student(
 
 #学生选课表
 CREATE TABLE StudentCourse(
-    student_id int NOT NULL,
+    student_id varchar(255) NOT NULL,
     course_id int NOT NULL,
     course_name varchar(255) NOT NULL,
     course_grade int NOT NULL, #成绩
