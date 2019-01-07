@@ -11,13 +11,13 @@ public class Student {
     String birthday;
     String startTime;
     String endTime;
-    int credit;
+    double credit;
     String source;
     String nationality;
     String type;
     String politicalStatus;
     double gpa;
-    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime, String endTIme, int credit, String source, String nationality, String type, String politicalStatus, double gpa) {
+    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime, String endTIme, double credit, String source, String nationality, String type, String politicalStatus, double gpa) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -119,11 +119,11 @@ public class Student {
         this.endTime = endTime;
     }
 
-    public int getCredit() {
+    public double getCredit() {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(double credit) {
         this.credit = credit;
     }
 
