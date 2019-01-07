@@ -36,7 +36,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setGrade(rs.getString("endTime"));
+                student.setGrade(rs.getString("grade"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
@@ -74,7 +74,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setGrade(rs.getString("endTime"));
+                student.setGrade(rs.getString("grade"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
@@ -113,7 +113,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setGrade(rs.getString("endTime"));
+                student.setGrade(rs.getString("grade"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
