@@ -21,7 +21,7 @@ CREATE TABLE Student(
     birthday VARCHAR(255),#出生日期
 	startTime VARCHAR(255) NOT NULL,#入学时间
 	endTime VARCHAR(255) NOT NULL,#预计毕业时间
-	credit INT,#已获学费
+	credit DOUBLE NOT NULL,#已获学分
 	source VARCHAR(255),#生源地
 	nationality VARCHAR(255),#民族
 	type VARCHAR(255) NOT NULL,#学生类型（普通本科生、专科生）
@@ -35,7 +35,7 @@ CREATE TABLE StudentCourse(
     course_id int NOT NULL,
     course_name varchar(255) NOT NULL,
     course_grade int NOT NULL, #成绩
-    credit float NOT NULL, #学分
+    credit double NOT NULL, #学分
     PRIMARY KEY(student_id, course_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8
 
@@ -47,7 +47,7 @@ CREATE TABLE Course(
     name varchar(255) NOT NULL, #课程名称
     institute varchar(255) NOT NULL, #学院
     category varchar(255) NULL, #分类
-    credit float NOT NULL, #学分
+    credit double NOT NULL, #学分
     teacher varchar(255) NOT NULL,  #教师
     class_time varchar(255) NULL, #上课时间
     class_place varchar(255) NULL #上课地点

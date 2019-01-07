@@ -37,7 +37,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
                 student.setEndTime(rs.getString("endTime"));
-                student.setCredit(rs.getInt("credit"));
+                student.setCredit(rs.getFloat("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
                 student.setType(rs.getString("type"));
@@ -75,7 +75,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
                 student.setEndTime(rs.getString("endTime"));
-                student.setCredit(rs.getInt("credit"));
+                student.setCredit(rs.getFloat("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
                 student.setType(rs.getString("type"));
@@ -114,7 +114,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
                 student.setEndTime(rs.getString("endTime"));
-                student.setCredit(rs.getInt("credit"));
+                student.setCredit(rs.getFloat("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
                 student.setType(rs.getString("type"));
@@ -150,7 +150,7 @@ public class StudentDaoImpl implements StudentDao {
             ps.setString(8, student.getBirthday());
             ps.setString(9, student.getStartTime());
             ps.setString(10, student.getEndTime());
-            ps.setString(11, Integer.toString(student.getCredit()));
+            ps.setString(11, Double.toString(student.getCredit()));
             ps.setString(12, student.getSource());
             ps.setString(13, student.getNationality());
             ps.setString(14, student.getType());
@@ -164,4 +164,31 @@ public class StudentDaoImpl implements StudentDao {
         }
         return false;
     }
+
+
+    @Override
+    public boolean delStudentById(String id){
+
+        Student student = null;
+        String sql="DELETE FROM Student WHERE id=?";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        int result = -1;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, id);
+            result = ps.executeUpdate();
+
+        }catch (SQLException e){
+            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl-delStudentById() 通过学号删除学生实体类时，连接数据库出错！");
+        }finally {
+            MysqlUtils.closeConnection(null, ps, con);
+        }
+        if(result >= 1) return true;
+        else return false;
+    }
+
+
 }
+
+
