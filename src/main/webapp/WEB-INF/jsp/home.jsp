@@ -61,7 +61,7 @@
             <div id="jbxx" style="display: block">
                 <div class="content_box_title">基本信息</div>
                 <div class="information">
-
+                    <div style="height: 50px;width: 100%;margin-bottom: 10px;position: relative"><div id="export_div">导出</div><input type="file" id="export" ></div>
                     <table id="content_table" style="white-space: nowrap;">
                         <thead>
                         <tr>

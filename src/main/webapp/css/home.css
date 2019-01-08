@@ -208,3 +208,34 @@ table td{
     color: #333 !important;
     background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
 }
+/*导出*/
+#export{
+    width: 80px;
+    position: absolute;
+    right: 20px;
+    height: 50px;
+    font-size: 18px;
+    font-family:"microsoft yahei";
+    text-align: center;
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+    border-radius: 10px;
+    opacity: 0;
+}
+#export_div{
+    line-height:50px ;
+    width: 80px;
+    position: absolute;
+    right: 20px;
+    height: 50px;
+    font-size: 18px;
+    font-family:"microsoft yahei";
+    text-align: center;
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+    border-radius: 10px;
+}
+#export_div:hover{
+    cursor: pointer;
+}
+#export:hover{
+    cursor: pointer;
+}
