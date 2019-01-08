@@ -20,8 +20,12 @@ public class GetAllStudents extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Student> LS = ((StudentDaoImpl) studentDao).getAllStudent();
-        response.getWriter().write(ToJson.listToJasonString(LS));
+        List<Student> ls = ((StudentDaoImpl) studentDao).getAllStudent();
+        request.setAttribute("StudentInfoList", ls);
+        request.setAttribute("Flag", 1);
+
+        request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
+        //response.getWriter().write(ToJson.listToJasonString(LS));
 
     }
 

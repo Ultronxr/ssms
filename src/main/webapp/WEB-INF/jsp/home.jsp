@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="entity.*"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList" %>
+<!DOCTYPE html>
 
 <%
     String path = request.getContextPath();
@@ -28,6 +32,11 @@
 
 </head>
 
+<%
+    List<Student> ls = (ArrayList<Student>)request.getAttribute("StudentInfoList");
+    int flag = (int)request.getAttribute("Flag");
+%>
+
 <body>
     <div class="header">
         <div class="head_txt">学籍信息</div>
@@ -36,7 +45,7 @@
     <div class="ct">
         <div class="navigation">
             <div class="navigation_li">
-                <a href="javascript:void(0);" onclick="jbxx_show()">基本信息</a>
+                <a href="<%=basePath%>get_all_students" onclick="jbxx_show()">基本信息</a>
             </div>
             <div class="navigation_li">
                 <a href="javascript:void(0);" onclick="xjxx_show()">学籍信息</a>
@@ -53,28 +62,73 @@
                 <div class="content_box_title">基本信息</div>
                 <div class="information">
 
-                    <table id="content_table">
+                    <table id="content_table" style="white-space: nowrap;">
                         <thead>
                         <tr>
-                            <th>卡号</th>
                             <th>学号</th>
-                            <th>操作</th>
-                            <th>金额</th>
-                            <th>时间</th>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>学院</th>
+                            <th>专业</th>
+                            <th>班级</th>
+                            <th>生日</th>
+                            <th>入学时间</th>
+                            <th>年级</th>
+                            <th>已获学分</th>
+                            <th>生源</th>
+                            <th>籍贯</th>
+                            <th>学生类别</th>
+                            <th>政治面貌</th>
+                            <th>平均绩点</th>
+                            <th>学生状态</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<c:if test="${!=null}">--%>
-                            <%--<c:forEach items="${}" var="">--%>
-                                <tr>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                    <td>123</td>
-                                </tr>
-                            <%--</c:forEach>--%>
-                        <%--</c:if>--%>
+                            <%
+                                if(ls != null && flag == 1){
+                                    for(Student i : ls){
+                            %>
+                                        <tr>
+                                            <td><%= i.getId() %></td>
+                                            <td><%= i.getName() %></td>
+                                            <td><%= i.getAge() %></td>
+                                            <td><%= i.getSex() %></td>
+                                            <td><%= i.getInstitute() %></td>
+                                            <td><%= i.getMajor() %></td>
+                                            <td><%= i.getStudentClass() %></td>
+                                            <td><%= i.getBirthday() %></td>
+                                            <td><%= i.getStartTime() %></td>
+                                            <td><%= i.getGrade() %></td>
+                                            <td><%= i.getCredit() %></td>
+                                            <td><%= i.getSource() %></td>
+                                            <td><%= i.getNationality() %></td>
+                                            <td><%= i.getType() %></td>
+                                            <td><%= i.getPoliticalStatus() %></td>
+                                            <td><%= i.getGpa() %></td>
+                                            <td><%= i.getStatus() %></td>
+                                        </tr>
+                            <%
+                                }}
+                            %>
+
+
+                            <%--<c:if test="${StudentInfoList==null}">--%>
+                                <%--<tr>--%>
+                                    <%--<td>空</td>--%>
+                                    <%--<td>空</td>--%>
+                                    <%--<td>空</td>--%>
+                                <%--</tr>--%>
+                            <%--</c:if>--%>
+                            <%--<c:if test="${StudentInfoList!=null}">--%>
+                                <%--<c:forEach items="${StudentInfoList}" var="t">--%>
+                                    <%--<tr>--%>
+                                        <%--<td>${t.id}</td>--%>
+                                        <%--<td>${t.name}</td>--%>
+                                        <%--<td>${t.age}</td>--%>
+                                    <%--</tr>--%>
+                                <%--</c:forEach>--%>
+                            <%--</c:if>--%>
                         </tbody>
                     </table>
 
@@ -97,7 +151,10 @@
 </body>
 <script>
     $(document).ready( function () {
-        $('#content_table').DataTable();
+        $('#content_table').DataTable({
+            scrollX: true,
+            bAutoWidth:true,
+        });
     } );
 
     function jbxx_show() {
