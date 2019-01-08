@@ -3,7 +3,7 @@ package action;
 import dao.StudentDao;
 import dao.impl.StudentDaoImpl;
 import entity.Student;
-import utils.ToJason;
+import utils.ToJson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,15 +14,19 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/get_all_students")
-public class getAllStudents extends HttpServlet {
+public class GetAllStudents extends HttpServlet {
+
+    private StudentDao studentDao = new StudentDaoImpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StudentDao sdao=new StudentDaoImpl();
-        List<Student> LS=((StudentDaoImpl) sdao).getAllStudent();
-        ToJason jason=new ToJason();
-        response.getWriter().write(jason.listToJasonString(LS));
+
+        List<Student> LS = ((StudentDaoImpl) studentDao).getAllStudent();
+        response.getWriter().write(ToJson.listToJasonString(LS));
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
+
 }

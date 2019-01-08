@@ -6,8 +6,9 @@ import entity.Student;
 
 import java.util.List;
 
-public class ToJason {
-    public String listToJasonString(List<Student> ls){
+public class ToJson {
+
+    public static String listToJasonString(List<Student> ls){
         return JSON.toJSONString(ls, SerializerFeature.WriteMapNullValue,SerializerFeature.WriteNullStringAsEmpty);
     }
 }
