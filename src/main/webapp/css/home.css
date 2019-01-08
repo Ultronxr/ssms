@@ -143,6 +143,7 @@ table{
     font-size: 17px;
     border-collapse: collapse;
     border:1px solid #0094ff;
+    max-height: 500px;
 }
 table th{
     padding: .5em .5em;

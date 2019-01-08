@@ -77,7 +77,7 @@
                             <th>年级</th>
                             <th>已获学分</th>
                             <th>生源</th>
-                            <th>籍贯</th>
+                            <th>民族</th>
                             <th>学生类别</th>
                             <th>政治面貌</th>
                             <th>平均绩点</th>
@@ -131,19 +131,31 @@
                             <%--</c:if>--%>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div id="xjxx" style="display: none">
+                <div class="content_box_title">学籍信息</div>
+                <div>
 
 
 
                 </div>
             </div>
-            <div id="xjxx" style="display: none">
-                <div class="content_box_title">学籍信息</div>
-            </div>
             <div id="kcxx" style="display: none">
                 <div class="content_box_title">课程信息</div>
+                <div>
+
+
+
+                </div>
             </div>
             <div id="cjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
+                <div>
+
+
+
+                </div>
             </div>
         </div>
     </div>
@@ -153,6 +165,7 @@
     $(document).ready( function () {
         $('#content_table').DataTable({
             scrollX: true,
+            //scrollY: "300px",
             bAutoWidth:true,
         });
     } );
