@@ -10,8 +10,8 @@ public interface StudentDao {
     Student getStudentInfoByName(String name);
     List<Student> getAllStudent();
 
-    //通过入学时间、专业、班级获取学生信息
-    List<Student> getStudentInfoByCon(String startTime, String major, String studentClass);
+    //通过年级、专业、班级获取学生信息
+    List<Student> getStudentInfoByCon(String grade, String major, String studentClass);
 
 
     boolean insertStudent(Student student);

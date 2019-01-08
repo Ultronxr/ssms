@@ -94,14 +94,18 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public List<Student> getStudentInfoByCon(String startTime, String major, String studentClass){
+    public List<Student> getStudentInfoByCon(String grade, String major, String studentClass){
+
         List students = new ArrayList<Student>();
-        String sql = "";
+        String sql = "SELECT * FROM Student WHERE grade LIKE ? and major LIKE ? and studentClass LIKE ?";
         Connection con = MysqlUtils.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
             ps = con.prepareStatement(sql);
+            ps.setString(1, "%"+grade+"%");
+            ps.setString(2, "%"+major+"%");
+            ps.setString(3, "%"+studentClass+"%");
             rs = ps.executeQuery();
             while(rs.next()){
                 Student student=new Student();
@@ -115,7 +119,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setStudentClass(rs.getString("studentClass"));
                 student.setBirthday(rs.getString("birthday"));
                 student.setStartTime(rs.getString("startTime"));
-                student.setGrade(rs.getString("endTime"));
+                student.setGrade(rs.getString("grade"));
                 student.setCredit(rs.getInt("credit"));
                 student.setSource(rs.getString("source"));
                 student.setNationality(rs.getString("nationality"));
