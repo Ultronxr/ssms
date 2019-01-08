@@ -128,6 +128,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setType(rs.getString("type"));
                 student.setPoliticalStatus(rs.getString("politicalStatus"));
                 student.setGpa(rs.getDouble("gpa"));
+                student.setStatus(rs.getString("status"));
                 students.add(student);
             }
 
