@@ -35,15 +35,16 @@ public class Excel {
                     String studentClass=rs.getCell(j++, i).getContents();
                     String birthday=rs.getCell(j++, i).getContents();
                     String startTime=rs.getCell(j++, i).getContents();
-                    String endTime=rs.getCell(j++, i).getContents();
+                    String grade=rs.getCell(j++, i).getContents();
                     String credit=rs.getCell(j++, i).getContents();
+                    String status=rs.getCell(j++,i).getContents();
                     String source=rs.getCell(j++, i).getContents();
                     String nationality=rs.getCell(j++, i).getContents();
                     String type=rs.getCell(j++, i).getContents();
                     String politicalStatus=rs.getCell(j++, i).getContents();
                     String gpa=rs.getCell(j++, i).getContents();
 
-                    Student st=new Student(id,name,Integer.parseInt(age),sex,insititute,major,studentClass,birthday,startTime,endTime,Double.parseDouble(credit),source,nationality,type,politicalStatus,Double.parseDouble(gpa));
+                    Student st=new Student(id,name,Integer.parseInt(age),sex,insititute,major,studentClass,birthday,startTime,grade,Double.parseDouble(credit),status,source,nationality,type,politicalStatus,Double.parseDouble(gpa));
                     list.add(st);
                     //list.add(new Student(Integer.parseInt(id), name, sex, Integer.parseInt(num)));
                 }

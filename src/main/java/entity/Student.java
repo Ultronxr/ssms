@@ -17,7 +17,8 @@ public class Student {
     String type;
     String politicalStatus;
     double gpa;
-    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime, String grade, double credit, String source, String nationality, String type, String politicalStatus, double gpa) {
+    String status;
+    public Student(String id, String name, int age, String sex, String institute, String major, String studentClass, String birthday, String startTime,String grade, double credit,String status,String source, String nationality, String type, String politicalStatus, double gpa) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -34,8 +35,16 @@ public class Student {
         this.type = type;
         this.politicalStatus = politicalStatus;
         this.gpa = gpa;
+        this.status=status;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Student(){}
 

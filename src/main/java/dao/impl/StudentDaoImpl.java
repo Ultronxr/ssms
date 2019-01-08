@@ -43,6 +43,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setType(rs.getString("type"));
                 student.setPoliticalStatus(rs.getString("politicalStatus"));
                 student.setGpa(rs.getDouble("gpa"));
+                student.setStatus(rs.getString("status"));
             }
 
         }catch (SQLException e){
@@ -83,6 +84,7 @@ public class StudentDaoImpl implements StudentDao {
                 student.setType(rs.getString("type"));
                 student.setPoliticalStatus(rs.getString("politicalStatus"));
                 student.setGpa(rs.getDouble("gpa"));
+                student.setStatus(rs.getString("status"));
             }
 
         }catch (SQLException e){
@@ -167,6 +169,8 @@ public class StudentDaoImpl implements StudentDao {
                 student.setType(rs.getString("type"));
                 student.setPoliticalStatus(rs.getString("politicalStatus"));
                 student.setGpa(rs.getDouble("gpa"));
+                student.setStatus(rs.getString("status"));
+                student.setStatus(rs.getString("status"));
                 students.add(student);
             }
 
@@ -180,7 +184,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean insertStudent(Student student) {
-        String sql="INSERT into Student VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT into Student VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         //INSERT into Student VALUES("16401010225","陈鸿宇",21,"男","电子与信息","计科","162","1998-01-01","2016-09-15","2020-01-01",88,"浙江","汉","普通本科生","团员","3.75")
         Connection con=MysqlUtils.getConnection();
         PreparedStatement ps=null;
@@ -198,11 +202,12 @@ public class StudentDaoImpl implements StudentDao {
             ps.setString(9, student.getStartTime());
             ps.setString(10, student.getGrade());
             ps.setString(11, Double.toString(student.getCredit()));
-            ps.setString(12, student.getSource());
-            ps.setString(13, student.getNationality());
-            ps.setString(14, student.getType());
-            ps.setString(14, student.getPoliticalStatus());
-            ps.setString(14, Double.toString(student.getGpa()));
+            ps.setString(12,student.getStatus());
+            ps.setString(13, student.getSource());
+            ps.setString(14, student.getNationality());
+            ps.setString(15, student.getType());
+            ps.setString(16, student.getPoliticalStatus());
+            ps.setString(17, Double.toString(student.getGpa()));
             ps.executeQuery();
         }catch (SQLException e){
             System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl 插入学生出错！");
