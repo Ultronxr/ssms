@@ -22,7 +22,7 @@ public class Excel {
             int clos=rs.getColumns();//得到所有的列
             int rows=rs.getRows();//得到所有的行
 
-            System.out.println(clos+" rows:"+rows);
+            System.out.println("clos:"+clos+" rows:"+rows);
             for (int i = 1; i < rows; i++) {
                 for (int j = 0; j < clos; j++) {
                     //第一个是列数，第二个是行数
@@ -43,8 +43,8 @@ public class Excel {
                     String type=rs.getCell(j++, i).getContents();
                     String politicalStatus=rs.getCell(j++, i).getContents();
                     String gpa=rs.getCell(j++, i).getContents();
-
                     Student st=new Student(id,name,Integer.parseInt(age),sex,insititute,major,studentClass,birthday,startTime,grade,Double.parseDouble(credit),status,source,nationality,type,politicalStatus,Double.parseDouble(gpa));
+                    System.out.println(st);
                     list.add(st);
                     //list.add(new Student(Integer.parseInt(id), name, sex, Integer.parseInt(num)));
                 }
@@ -53,9 +53,11 @@ public class Excel {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            return null;
         }
         return list;
     }
+    //一个学生的成绩
     public static boolean dbToExcel(String fileName){
         try {
             WritableWorkbook wwb = null;

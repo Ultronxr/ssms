@@ -209,9 +209,11 @@ public class StudentDaoImpl implements StudentDao {
             ps.setString(15, student.getType());
             ps.setString(16, student.getPoliticalStatus());
             ps.setString(17, Double.toString(student.getGpa()));
-            ps.executeQuery();
+
+            ps.execute();
         }catch (SQLException e){
             System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl 插入学生出错！");
+            e.printStackTrace();
         }finally {
             MysqlUtils.closeConnection(rs, ps, con);
         }

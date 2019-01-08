@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="jquery3.3.1-jqueryui1.12.1/DataTables-1.10.15/media/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="jquery3.3.1-jqueryui1.12.1/jquery-ui.css" />
     <link type="text/css" rel="stylesheet" href="css/home.css" >
+    <script src="js/home.js" type="text/javascript"></script>
 
 </head>
 
@@ -61,7 +62,12 @@
             <div id="jbxx" style="display: block">
                 <div class="content_box_title">基本信息</div>
                 <div class="information">
-                    <div style="height: 50px;width: 100%;margin-bottom: 10px;position: relative"><div id="export_div">导出</div><input type="file" id="export" ></div>
+                    <div style="height: 50px;width: 100%;margin-bottom: 10px;position: relative">
+                        <div id="export_div">导出</div>
+                        <form action="import.jhtml" method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" id="export" onchange="upload()">
+                        </form>
+                    </div>
                     <table id="content_table" style="white-space: nowrap;">
                         <thead>
                         <tr>
