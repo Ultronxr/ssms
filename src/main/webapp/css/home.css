@@ -158,3 +158,51 @@ table td{
     border:1px solid #0094ff;
     text-align: center;
 }
+/*页数选择*/
+#content_table_length{
+    font-size: 20px;
+    font-family:"microsoft yahei";
+    height: 50px;
+}
+#content_table_length select{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
+/*搜索框*/
+#content_table_filter{
+    font-size: 20px;
+    font-family:"microsoft yahei";
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#content_table_filter input{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
+/*搜索结果*/
+#content_table_info{
+    font-size: 20px;
+    font-family:"microsoft yahei";
+    margin-top: 10px;
+}
+
+
+/*页码*/
+#content_table_paginate{
+    font-size: 20px;
+    font-family:"microsoft yahei";
+    margin-top: 10px;
+}
+
+#content_table_previous,#content_table_next{
+    border: 1px solid #979797;
+    color: #333 !important;
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+}
