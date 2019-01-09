@@ -99,12 +99,17 @@ body{
     left: 0;
     top:0;
 }
+
+#xjxx input:focus{
+    border: 1px solid #003eff;
+    background-color: white;
+}
 .content_box_title{
     width: 1430px;
-    height: 40px;
+    height: 50px;
     font-size: 20px;
-    line-height: 40px;
-    padding: 10px 0 0 20px;
+    line-height: 50px;
+    padding: 5px 0 5px 20px;
     color: #C1C1C1;
     border-bottom: 1px solid #C9C9C9;
 }
@@ -120,11 +125,12 @@ body{
     padding: 5px;
 }
 .information_line .block{
-    margin-left: 75px;
+    margin-left: 115px;
     height: 70px;
     line-height: 70px;
     font-size: 18px;
     font-weight: bold;
+    float: left;
 }
 
 .information_line  .information_ip{
@@ -135,10 +141,12 @@ body{
     border: 0px;
     padding-left: 10px;
     width: 280px;
+    float: left;
+
 }
 
 table{
-    width: 100%;
+    width: 100% !important;
     font-family: consolas;
     font-size: 17px;
     border-collapse: collapse;
@@ -161,7 +169,7 @@ table td{
 }
 
 /*页数选择*/
-#content_table_length{
+#content_table_length,#kcxx_table_length{
     font-size: 20px;
     font-family:"microsoft yahei";
     height: 50px;
@@ -173,8 +181,16 @@ table td{
     border-radius: 10px;
     border: 1px solid #aaaaaa;
 }
+#kcxx_table_length select{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
+
 /*搜索框*/
-#content_table_filter{
+#content_table_filter,#kcxx_table_filter{
     font-size: 20px;
     font-family:"microsoft yahei";
     height: 50px;
@@ -188,8 +204,15 @@ table td{
     border-radius: 10px;
     border: 1px solid #aaaaaa;
 }
+#kcxx_table_filter input{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
 /*搜索结果*/
-#content_table_info{
+#content_table_info,#kcxx_table_info{
     font-size: 20px;
     font-family:"microsoft yahei";
     margin-top: 10px;
@@ -197,13 +220,13 @@ table td{
 
 
 /*页码*/
-#content_table_paginate{
+#content_table_paginate,#kcxx_table_paginate{
     font-size: 20px;
     font-family:"microsoft yahei";
     margin-top: 10px;
 }
 
-#content_table_previous,#content_table_next{
+#content_table_previous,#content_table_next,#kcxx_table_previous,#kcxx_table_next{
     border: 1px solid #979797;
     color: #333 !important;
     background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
@@ -238,4 +261,17 @@ table td{
 }
 #export:hover{
     cursor: pointer;
+}
+
+.ctbutton{
+    width: 80px;
+    float: right;
+    margin-right: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-family:"microsoft yahei";
+    text-align: center;
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+    border-radius: 10px;
 }
