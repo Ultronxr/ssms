@@ -36,6 +36,7 @@
 <%
     List<Student> ls = (ArrayList<Student>)request.getAttribute("StudentInfoList");
     int flag = (int)request.getAttribute("Flag");
+
 %>
 
 <body>
@@ -48,9 +49,9 @@
             <div class="navigation_li">
                 <a href="<%=basePath%>get_all_students" onclick="jbxx_show()">基本信息</a>
             </div>
-            <div class="navigation_li">
-                <a href="javascript:void(0);" onclick="xjxx_show()">学籍信息</a>
-            </div>
+            <%--<div class="navigation_li">--%>
+                <%--<a href="javascript:void(0);" onclick="xjxx_show()">学籍信息</a>--%>
+            <%--</div>--%>
             <div class="navigation_li">
                  <a href="javascript:void(0);" onclick="kcxx_show()">课程信息</a>
             </div>
@@ -93,26 +94,26 @@
                         <tbody>
                             <%
                                 if(ls != null && flag == 1){
-                                    for(Student i : ls){
+                                    for(int i=0;i<ls.size();i++){
                             %>
-                                        <tr>
-                                            <td><%= i.getId() %></td>
-                                            <td><%= i.getName() %></td>
-                                            <td><%= i.getAge() %></td>
-                                            <td><%= i.getSex() %></td>
-                                            <td><%= i.getInstitute() %></td>
-                                            <td><%= i.getMajor() %></td>
-                                            <td><%= i.getStudentClass() %></td>
-                                            <td><%= i.getBirthday() %></td>
-                                            <td><%= i.getStartTime() %></td>
-                                            <td><%= i.getGrade() %></td>
-                                            <td><%= i.getCredit() %></td>
-                                            <td><%= i.getSource() %></td>
-                                            <td><%= i.getNationality() %></td>
-                                            <td><%= i.getType() %></td>
-                                            <td><%= i.getPoliticalStatus() %></td>
-                                            <td><%= i.getGpa() %></td>
-                                            <td><%= i.getStatus() %></td>
+                                        <tr id="tr<%=i%>" ondblclick="getxjxx(<%=i%>)";>
+                                            <td><%= ls.get(i).getId() %></td>
+                                            <td><%= ls.get(i).getName() %></td>
+                                            <td><%= ls.get(i).getAge() %></td>
+                                            <td><%= ls.get(i).getSex() %></td>
+                                            <td><%= ls.get(i).getInstitute() %></td>
+                                            <td><%= ls.get(i).getMajor() %></td>
+                                            <td><%= ls.get(i).getStudentClass() %></td>
+                                            <td><%= ls.get(i).getBirthday() %></td>
+                                            <td><%= ls.get(i).getStartTime() %></td>
+                                            <td><%= ls.get(i).getGrade() %></td>
+                                            <td><%= ls.get(i).getCredit() %></td>
+                                            <td><%= ls.get(i).getSource() %></td>
+                                            <td><%= ls.get(i).getNationality() %></td>
+                                            <td><%= ls.get(i).getType() %></td>
+                                            <td><%= ls.get(i).getPoliticalStatus() %></td>
+                                            <td><%= ls.get(i).getGpa() %></td>
+                                            <td><%= ls.get(i).getStatus() %></td>
                                         </tr>
                             <%
                                 }}
@@ -140,27 +141,96 @@
                 </div>
             </div>
             <div id="xjxx" style="display: none">
-                <div class="content_box_title">学籍信息</div>
-                <div>
+                <div class="content_box_title">学籍信息
+                    <input type="button" id="update_xjxx" value="修改" class="ctbutton">
+                </div>
+                <div class="information">
+                    <div class="information_line">
+                        <div class="block">学号</div>
+                        <input type="text" class="information_ip" id="sid">
+                        <div class="block">姓名</div>
+                        <input type="text" class="information_ip" id="sname">
+                        <div class="block">年龄</div>
+                        <input type="text" class="information_ip" id="sage">
+                    </div>
+                    <div class="information_line">
+                        <div class="block">性别</div>
+                        <input type="text" class="information_ip" id="ssex">
+                        <div class="block">学院</div>
+                        <input type="text" class="information_ip" id="sinstitute">
+                        <div class="block">专业</div>
+                        <input type="text" class="information_ip" id="smajor">
+                    </div>
+                    <div class="information_line">
+                        <div class="block">班级</div>
+                        <input type="text" class="information_ip" id="sclass">
+                        <div class="block">生日</div>
+                        <input type="text" class="information_ip" id="sbirthday">
+                        <div class="block" style="margin-left: 81px;">入学时间</div>
+                        <input type="text" class="information_ip" id="sstartTime">
+                    </div>
+                    <div class="information_line">
+                        <div class="block">年级</div>
+                        <input type="text" class="information_ip" id="sgrade">
+                        <div class="block" style="margin-left: 81px;">已获学分</div>
+                        <input type="text" class="information_ip" id="scredit">
+                        <div class="block" >生源</div>
+                        <input type="text" class="information_ip" id="ssource">
+                    </div>
+                    <div class="information_line">
+                        <div class="block">民族</div>
+                        <input type="text" class="information_ip" id="snationality">
+                        <div class="block" style="margin-left: 81px;">学生类别</div>
+                        <input type="text" class="information_ip" id="stype">
+                        <div class="block" style="margin-left: 81px;">政治面貌</div>
+                        <input type="text" class="information_ip" id="spoliticalStatus">
+                    </div>
+                    <div class="information_line">
+                        <div class="block" style="margin-left: 81px;">平均绩点</div>
+                        <input type="text" class="information_ip" id="sgpa">
+                        <div class="block" style="margin-left: 81px;">学生状态</div>
+                        <input type="text" class="information_ip" id="sstatus">
 
-
-
+                    </div>
                 </div>
             </div>
             <div id="kcxx" style="display: none">
                 <div class="content_box_title">课程信息</div>
-                <div>
+                <div class="information">
+                    <table id="kcxx_table" style="white-space: nowrap;">
+                        <thead>
+                            <tr>
+                                <th>课程名称</th>
+                                <th>学院</th>
+                                <th>开课学年</th>
+                                <th>学期</th>
+                                <th>分类</th>
+                                <th>学分</th>
+                                <th>教师</th>
+                                <th>上课时间</th>
+                                <th>上课地点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
+                                <td>123</td>
 
-
-
+                             </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div id="cjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
                 <div>
-
-
-
                 </div>
             </div>
         </div>
@@ -174,37 +244,9 @@
             //scrollY: "300px",
             bAutoWidth:true,
         });
+
     } );
 
-    function jbxx_show() {
-        $("#jbxx").css("display","block");
-        $("#xjxx").css("display","none");
-        $("#kcxx").css("display","none");
-        $("#cjxx").css("display","none");
-    }
-    function xjxx_show() {
-        $("#jbxx").css("display","none");
-        $("#xjxx").css("display","block");
-        $("#kcxx").css("display","none");
-        $("#cjxx").css("display","none");
-        $('#content_table1').DataTable({
-            scrollX: true,
-            //scrollY: "300px",
-            bAutoWidth:true,
-        });
-    }
-    function kcxx_show() {
-        $("#jbxx").css("display","none");
-        $("#xjxx").css("display","none");
-        $("#kcxx").css("display","block");
-        $("#cjxx").css("display","none");
-    }
-    function cjxx_show() {
-        $("#jbxx").css("display","none");
-        $("#xjxx").css("display","none");
-        $("#kcxx").css("display","none");
-        $("#cjxx").css("display","block");
-    }
 
 </script>
 </html>
