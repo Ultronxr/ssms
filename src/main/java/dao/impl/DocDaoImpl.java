@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.DocDao;
+import entity.Course;
 import entity.Student;
 import entity.StudentGrade;
 import utils.MysqlUtils;
@@ -100,5 +101,68 @@ public class DocDaoImpl implements DocDao {
         return list;
     }
 
+
+    @Override
+    public boolean setCourseGrade(List<StudentGrade> list){
+        String sql = "UPDATE StudentCourse SET course_score=?\n" +
+                "WHERE student_id=? and course_id=?";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        int flag = 0;
+        try{
+            ps = con.prepareStatement(sql);
+
+            for(StudentGrade sg : list){
+                ps.setInt(1, sg.getScore());
+                ps.setString(2, sg.getStudentId());
+                ps.setString(3, sg.getCourseId());
+                int t = ps.executeUpdate();
+                flag += t;
+            }
+
+        }catch (SQLException e){
+            System.out.println("[x] src.main.java.dao.impl-DocDaoImpl-setCourseGrade 连接数据库出错！");
+            //e.printStackTrace();
+        }finally {
+            MysqlUtils.closeConnection(null, ps, con);
+        }
+        return true;
+    }
+
+
+    @Override
+    public List<Course> getCourse(){
+
+        String sql = "SELECT * FROM Course";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Course> list = new ArrayList<>();
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Course course = new Course();
+                course.setId(rs.getString(1));
+                course.setSchool_year(rs.getString(2));
+                course.setSemester(rs.getInt(3));
+                course.setName(rs.getString(4));
+                course.setInstitute(rs.getString(5));
+                course.setCategory(rs.getString(6));
+                course.setCredit(rs.getDouble(7));
+                course.setTeacher(rs.getString(8));
+                course.setClass_time(rs.getString(9));
+                course.setClass_place(rs.getString(10));
+                list.add(course);
+            }
+
+        }catch (SQLException e){
+            System.out.println("[x] src.main.java.dao.impl-DocDaoImpl-getCourse 连接数据库出错！");
+            //e.printStackTrace();
+        }finally {
+            MysqlUtils.closeConnection(rs, ps, con);
+        }
+        return list;
+    }
 
 }

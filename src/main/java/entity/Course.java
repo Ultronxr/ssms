@@ -1,7 +1,7 @@
 package entity;
 
 public class Course {
-    int id;
+    String id;
     String school_year;
     int semester;
     String name;
@@ -12,11 +12,11 @@ public class Course {
     String class_time;
     String class_place;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
