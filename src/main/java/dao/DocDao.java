@@ -1,9 +1,22 @@
 package dao;
 
+import entity.Course;
 import entity.StudentGrade;
 
 import java.util.List;
 
 public interface DocDao {
-    List<StudentGrade> getStudentGrade(String StudentId,String schoolYear,String semester);
+
+    //某个学生在某一学年、某一学期的详细成绩
+    List<StudentGrade> getStudentGrade(String studentId, String schoolYear, int semester);
+
+    //某门课在某一学年、某一学期所有学生的详细成绩
+    List<StudentGrade> getCourseGrade(String courseId, String schoolYear, int semester);
+
+    //修改某门课所有学生的成绩
+    boolean setCourseGrade(List<StudentGrade> list);
+
+    //获取课程信息
+    List<Course> getCourse();
+
 }
