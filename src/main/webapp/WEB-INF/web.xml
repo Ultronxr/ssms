@@ -42,6 +42,17 @@
     <url-pattern>/get_all_students</url-pattern>
   </servlet-mapping>
 
+
+  <servlet>
+    <servlet-name>updateInfos</servlet-name>
+    <servlet-class>action.UpdateInfos</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>updateInfos</servlet-name>
+    <url-pattern>/updateInfos</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

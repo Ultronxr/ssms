@@ -144,6 +144,7 @@ table{
     border-collapse: collapse;
     border:1px solid #0094ff;
     max-height: 500px;
+    width: 100% !important;
 }
 table th{
     padding: .5em .5em;

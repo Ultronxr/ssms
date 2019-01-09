@@ -187,6 +187,11 @@
         $("#xjxx").css("display","block");
         $("#kcxx").css("display","none");
         $("#cjxx").css("display","none");
+        $('#content_table1').DataTable({
+            scrollX: true,
+            //scrollY: "300px",
+            bAutoWidth:true,
+        });
     }
     function kcxx_show() {
         $("#jbxx").css("display","none");
