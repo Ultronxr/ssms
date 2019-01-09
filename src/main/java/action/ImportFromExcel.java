@@ -16,7 +16,8 @@ import java.io.InputStream;
 import java.util.List;
 
 @WebServlet("/import.jhtml")
-public class importFromExcel extends HttpServlet {
+public class ImportFromExcel extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //System.out.println(request.getPart("file").getContentType());
         InputStream is=request.getPart("file").getInputStream();
@@ -42,4 +43,5 @@ public class importFromExcel extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
+
 }

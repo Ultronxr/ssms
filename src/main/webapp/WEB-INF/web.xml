@@ -24,7 +24,7 @@
 
   <servlet>
     <servlet-name>importfile</servlet-name>
-    <servlet-class>action.importFromExcel</servlet-class>
+    <servlet-class>action.ImportFromExcel</servlet-class>
   </servlet>
 
   <servlet-mapping>
