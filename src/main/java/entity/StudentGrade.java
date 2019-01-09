@@ -26,7 +26,7 @@ public class StudentGrade {
         this.category = category;
         this.credit = credit;
         this.score = score;
-            this.teacher = teacher;
+        this.teacher = teacher;
         this.studentId = studentId;
         this.studentName = studentName;
         this.sex = sex;
