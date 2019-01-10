@@ -96,9 +96,39 @@ function kcxx_show() {
             sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
             sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
             sLengthMenu: "每页 _MENU_ 项",
-        }
+        },
+        "bPaginate" : true, //翻页按钮
+        "bInfo" : true, //页脚信息
+        "bScrollCollapse" : true, //插件高度自适应
 
     });
+
+}
+function addTest() {
+    var rowItem =
+        '<tr>' +
+        '<td> 测试1 </td>' +
+        '<td> 测试2 </td>' +
+        '<td> 测试3 </td>' +
+        '<td> 测试4 </td>' +
+        '<td> 测试5 </td>' +
+        '<td> 测试6 </td>' +
+        '<td> 测试7 </td>' +
+        '<td> 测试8 </td>' +
+        '<td> 测试9 </td>' +
+        '<td> 测试10 </td>' +
+        '<td> 测试11 </td>' +
+        '<td> 测试12 </td>' +
+        '<td> 测试13 </td>' +
+        '<td> 测试14 </td>' +
+        '<td> 测试15 </td>' +
+        '<td> 测试16 </td>' +
+        '<td> 测试17 </td>' +
+        '</tr>';
+    $("#content_table tbody:last").append(rowItem);
+}
+function delTest() {
+    $("#content_table tr:last").remove();
 }
 function cjxx_show() {
     $("#jbxx").css("display","none");

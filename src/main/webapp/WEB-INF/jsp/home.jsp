@@ -119,25 +119,11 @@
                                 }}
                             %>
 
-
-                            <%--<c:if test="${StudentInfoList==null}">--%>
-                                <%--<tr>--%>
-                                    <%--<td>空</td>--%>
-                                    <%--<td>空</td>--%>
-                                    <%--<td>空</td>--%>
-                                <%--</tr>--%>
-                            <%--</c:if>--%>
-                            <%--<c:if test="${StudentInfoList!=null}">--%>
-                                <%--<c:forEach items="${StudentInfoList}" var="t">--%>
-                                    <%--<tr>--%>
-                                        <%--<td>${t.id}</td>--%>
-                                        <%--<td>${t.name}</td>--%>
-                                        <%--<td>${t.age}</td>--%>
-                                    <%--</tr>--%>
-                                <%--</c:forEach>--%>
-                            <%--</c:if>--%>
                         </tbody>
                     </table>
+                    <button onclick="addTest()">添加测试行</button>
+                    <button onclick="delTest()">删除测试行</button>
+                    <br/><br/><br/><br/><br/><br/>
                 </div>
             </div>
             <div id="xjxx" style="display: none">
@@ -215,6 +201,7 @@
 
                         </tbody>
                     </table>
+
                 </div>
             </div>
             <div id="cjxx" style="display: none">
