@@ -89,6 +89,24 @@
     <url-pattern>/get_score_by_student</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>exportonesallscore</servlet-name>
+    <servlet-class>action.ExportOnesAllScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>exportonesallscore</servlet-name>
+    <url-pattern>/export_ones_all_score</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>exportcoursescore</servlet-name>
+    <servlet-class>action.ExportCourseScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>exportcoursescore</servlet-name>
+    <url-pattern>/export_course_all_score</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

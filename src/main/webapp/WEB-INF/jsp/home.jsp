@@ -211,7 +211,7 @@
             </div>
             <div id="cjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
-                <div id="export_div_cj" style="top: 5px" onclick="">导出</div>
+                <div id="export_div_cj" style="top: 5px" onclick="exportCourseScore()">导出</div>
                 <div class="information">
                     <table id="cjxx_table" style="white-space: nowrap;">
                         <thead>
@@ -235,7 +235,7 @@
             </div>
             <div id="grcjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
-                <div id="export_div_grcj" style="top: 5px" onclick="">导出</div>
+                <div id="export_div_grcj" style="top: 5px" onclick="exportOnesScore()">导出</div>
                 <div class="information">
                     <table id="grcjxx_table" style="white-space: nowrap;">
                         <thead>
