@@ -1,3 +1,11 @@
+var strFullPath = window.document.location.href;
+var strPath = window.document.location.pathname;
+var pos = strFullPath.indexOf(strPath);
+var prePath = strFullPath.substring(0, pos);
+var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+var basePath = prePath;
+basePath = prePath + postPath;
+
 $(document).ready(function() {
     $("td").mousedown(function(e) {
         console.log(e.which);
@@ -51,15 +59,45 @@ function xjxx_show() {
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","none");
 }
+//课程信息的显示
 function kcxx_show() {
     $("#jbxx").css("display","none");
     $("#xjxx").css("display","none");
     $("#kcxx").css("display","block");
     $("#cjxx").css("display","none");
+
+    var url = basePath+"/get_all_courses";
+
     $('#kcxx_table').DataTable({
         scrollX: true,
         //scrollY: "300px",
         bAutoWidth:true,
+        serverSide:true,
+        ajax: url,
+        columns:[
+            {"data":"name"},
+            {"data":"institute"},
+            {"data":"school_year"},
+            {"data":"semester"},
+            {"data":"category"},
+            {"data":"credit"},
+            {"data":"teacher"},
+            {"data":"class_time"},
+            {"data":"class_place"}
+        ],
+        language:{
+            oPaginate:{
+                sFirst:"首页",
+                sPrevious:"上一页",
+                sNext:"下一页",
+                sLast:"尾页"
+            },
+            sSearch:"搜索",
+            sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+            sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+            sLengthMenu: "每页 _MENU_ 项",
+        }
+
     });
 }
 function cjxx_show() {
@@ -90,5 +128,11 @@ function getxjxx(i) {
     $("#spoliticalStatus").val(tr.cells[14].innerHTML);
     $("#sgpa").val(tr.cells[15].innerHTML);
     $("#sstatus").val(tr.cells[16].innerHTML);
+
+}
+
+
+function getkcxx() {
+    cjxx_show();
 
 }

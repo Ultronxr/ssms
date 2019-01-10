@@ -211,19 +211,8 @@
                                 <th>上课地点</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
+                        <tbody id="kcBody">
 
-                             </tr>
                         </tbody>
                     </table>
                 </div>
@@ -243,6 +232,18 @@
             scrollX: true,
             //scrollY: "300px",
             bAutoWidth:true,
+            language:{
+                oPaginate:{
+                    sFirst:"首页",
+                    sPrevious:"上一页",
+                    sNext:"下一页",
+                    sLast:"尾页"
+                },
+                sSearch:"搜索",
+                sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+                sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+                sLengthMenu: "每页 _MENU_ 项",
+            }
         });
 
     } );
