@@ -84,15 +84,17 @@ function update_xjxx_b() {
 }
 
 function update_cjxx_b(){
-    var student_id = $("#replace_me_1"),
-        course_id = $("#replace_me_2"),
-        score = $("#replace_me_3");
-
-    var reg = "/^[0-9]{1,3}$/";
-    if(!reg.test(score)){
-        alert("请输入1-100之间的数字！");
-        return;
-    }
+    var student_id = $("#sid_up").val(),
+        course_id = $("#cid_up").val(),
+        year = $("#sy_up").val(),
+        semester = $("#sm_up").val(),
+        score = $("#grade").val();
+    console.log(student_id+" "+course_id+" "+score);
+    var reg1 = "/^[0-9]{1,3}$/";
+    // if(!reg1.test(score)){
+    //     alert("请输入1-100之间的数字！");
+    //     return;
+    // }
     if(score < 0 || score > 100){
         alert("请输入1-100之间的数字！");
         return;
@@ -114,6 +116,8 @@ function update_cjxx_b(){
             alert("success！");
         }
     });
+    $("#up_cj").dialog("close");
+    getkcxx(course_id,year,semester);
 }
 
 function jbxx_show() {
@@ -304,6 +308,9 @@ function getxjxx(i) {
 function getkcxx(id,year,semester) {
     cjxx_show();
     console.log(id+"   "+year+"   "+semester);
+    $("#cid_up").val(id);
+    $("#sy_up").val(year);
+    $("#sm_up").val(semester);
     var url = basePath+"/get_one_course_score?CourseId="+id+"&SchoolYear="+year+"&Semester="+semester;
     // $.ajax({
     //     url:url,
@@ -352,7 +359,8 @@ function getkcxx(id,year,semester) {
                 targets:8,
                 data:"null",
                 render:function (data,type,row) {
-                    var html = "<a href='javascript:void(0);' onclick='' class='table_a' >查看</a>";
+                    var id = row.studentId;
+                    var html = "<a href='javascript:void(0);' onclick='updatecj("+id+")' class='table_a' >修改</a>";
                     return html;
                 }
             }]
@@ -420,4 +428,16 @@ function search_cj() {
             }
         }]
     });
+}
+
+function updatecj(id) {
+    $("#up_cj").dialog({
+        title: '修改个人成绩',
+        width: '450',
+        height: '220',
+        modal: true,
+        autoOpen: false
+    });
+    $("#up_cj").dialog("open");
+    $("#sid_up").val(id);
 }

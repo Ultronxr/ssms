@@ -210,6 +210,7 @@
             </div>
             <div id="cjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
+                <div id="export_div_cj" style="top: 5px" onclick="">导出</div>
                 <div class="information">
                     <table id="cjxx_table" style="white-space: nowrap;">
                         <thead>
@@ -233,6 +234,7 @@
             </div>
             <div id="grcjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
+                <div id="export_div_grcj" style="top: 5px" onclick="">导出</div>
                 <div class="information">
                     <table id="grcjxx_table" style="white-space: nowrap;">
                         <thead>
@@ -256,6 +258,15 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div id="up_cj" style="display: none;width: 300px;height: 130px;padding: 20px 10px 20px 10px">
+                <span style="height: 40px;font-size: 20px;color: black;line-height: 40px;margin-left: 20px;">请输入成绩</span>
+                <input type="text" id="grade" style="height: 40px;line-height: 40px;font-size: 20px;" placeholder="请输入0-100的整数">
+                <input type="text" id="sid_up" style="display: none">
+                <input type="text" id="cid_up" style="display: none">
+                <input type="text" id="sy_up" style="display: none">
+                <input type="text" id="sm_up" style="display: none">
+                <button class="ctbutton" onclick="update_cjxx_b()" style="float: none;margin-left: 180px;margin-top: 20px">修改</button>
             </div>
         </div>
     </div>
