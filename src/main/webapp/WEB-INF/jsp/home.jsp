@@ -131,6 +131,7 @@
             <div id="xjxx" style="display: none">
                 <div class="content_box_title">学籍信息
                     <input type="button" id="update_xjxx" value="修改" class="ctbutton" onclick="update_xjxx_b()">
+                    <input type="button" id="del_xjxx" value="删除" class="ctbutton" onclick="del_xjxx_b()" style="margin-right: 20px">
                 </div>
                 <div class="information">
                     <div class="information_line">

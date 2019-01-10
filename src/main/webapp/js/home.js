@@ -184,6 +184,7 @@ function kcxx_show() {
                 var year = row.school_year;
                 var semester = row.semester;
                 var html = "<a href='javascript:void(0);' onclick='getkcxx("+id+",\""+year+"\","+semester+")' class='table_a' >查看</a>";
+                html += "&nbsp;<a href='javascript:void(0);' onclick='del_kc("+id+")' class='table_a'>删除</a>";
                 return html;
             }
         }]
@@ -440,4 +441,13 @@ function updatecj(id) {
     });
     $("#up_cj").dialog("open");
     $("#sid_up").val(id);
+}
+// 删除课程
+function del_kc(id) {
+    console.log("删除课程"+id);
+}
+
+// 删除学籍信息
+function del_xjxx_b() {
+    
 }
