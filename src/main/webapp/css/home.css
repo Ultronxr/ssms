@@ -94,10 +94,12 @@ body{
 #content_box #jbxx,#xjxx,#kcxx,#cjxx{
     position: absolute;
     width: 1450px;
-    height: 700px;
+    height: 800px;
+
     border-radius: 20px;
     left: 0;
     top:0;
+
 }
 
 #xjxx input:focus{
@@ -236,6 +238,7 @@ table td{
 #export{
     width: 80px;
     position: absolute;
+    top:-50px;
     right: 20px;
     height: 50px;
     font-size: 18px;
@@ -249,6 +252,7 @@ table td{
     line-height:50px ;
     width: 80px;
     position: absolute;
+    top:-50px;
     right: 20px;
     height: 50px;
     font-size: 18px;

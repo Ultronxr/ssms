@@ -5,7 +5,7 @@ var prePath = strFullPath.substring(0, pos);
 var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 var basePath = prePath;
 basePath = prePath + postPath;
-
+var flag = 0;
 $(document).ready(function() {
     $("td").mousedown(function(e) {
         console.log(e.which);
@@ -65,43 +65,91 @@ function kcxx_show() {
     $("#xjxx").css("display","none");
     $("#kcxx").css("display","block");
     $("#cjxx").css("display","none");
-
     var url = basePath+"/get_all_courses";
-
-    $('#kcxx_table').DataTable({
-        scrollX: true,
-        //scrollY: "300px",
-        bAutoWidth:true,
-        serverSide:true,
-        ajax: url,
-        columns:[
-            {"data":"name"},
-            {"data":"institute"},
-            {"data":"school_year"},
-            {"data":"semester"},
-            {"data":"category"},
-            {"data":"credit"},
-            {"data":"teacher"},
-            {"data":"class_time"},
-            {"data":"class_place"}
-        ],
-        language:{
-            oPaginate:{
-                sFirst:"首页",
-                sPrevious:"上一页",
-                sNext:"下一页",
-                sLast:"尾页"
+    if(flag == 0 ){
+        $('#kcxx_table').DataTable({
+            scrollX: true,
+            //scrollY: "300px",
+            bAutoWidth:true,
+            ajax: url,
+            columns:[
+                {"data":"name"},
+                {"data":"institute"},
+                {"data":"school_year"},
+                {"data":"semester"},
+                {"data":"category"},
+                {"data":"credit"},
+                {"data":"teacher"},
+                {"data":"class_time"},
+                {"data":"class_place"}
+            ],
+            language:{
+                oPaginate:{
+                    sFirst:"首页",
+                    sPrevious:"上一页",
+                    sNext:"下一页",
+                    sLast:"尾页"
+                },
+                sSearch:"搜索",
+                sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+                sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+                sLengthMenu: "每页 _MENU_ 项",
             },
-            sSearch:"搜索",
-            sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
-            sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
-            sLengthMenu: "每页 _MENU_ 项",
-        },
-        "bPaginate" : true, //翻页按钮
-        "bInfo" : true, //页脚信息
-        "bScrollCollapse" : true, //插件高度自适应
+            "bPaginate" : true, //翻页按钮
+            "bInfo" : true, //页脚信息
+            "bScrollCollapse" : true, //插件高度自适应
 
-    });
+        });
+        flag =1;
+    }
+
+
+
+
+    // $.ajax({
+    //     type:"POST",
+    //     url:url,
+    //     dataType: "json",
+    //     success:function (data) {
+    //         console.log(data);
+    //         kcList = data.data;
+    //         console.log(kcList);
+    //         for(var i=0;i<kcList.length;i++){
+    //             // var kc  = kcList[i];
+    //             // var table = $("#kcxx_table").DataTable();
+    //             // table.row.add({
+    //             //     "课程名称":kc.name,
+    //             //     "学院":kc.institute,
+    //             //     "开课学年":kc.school_year,
+    //             //     "学期":kc.semester,
+    //             //     "分类":kc.category,
+    //             //     "学分":kc.credit,
+    //             //     "教师":kc.teacher,
+    //             //     "上课时间":kc.class_time,
+    //             //     "上课地点":kc.class_place
+    //             // }).draw();
+    //             var kc  = kcList[i];
+    //             var rowItem =
+    //                 '<tr>' +
+    //                 '<td>' +kc.name +'</td>' +
+    //                 '<td> '+kc.institute +' </td>' +
+    //                 '<td> '+kc.school_year +' </td>' +
+    //                 '<td> '+kc.semester +' </td>' +
+    //                 '<td> '+kc.category +' </td>' +
+    //                 '<td> '+kc.credit +' </td>' +
+    //                 '<td> '+kc.teacher +' </td>' +
+    //                 '<td> '+kc.class_time +' </td>' +
+    //                 '<td> '+kc.class_place +' </td>' +
+    //                 '</tr>';
+    //             $("#kcxx_table tbody:last").append(rowItem);
+    //         }
+    //     },
+    //     error:function (er) {
+    //         alert("获取课程信息失败");
+    //     }
+    // });
+
+
 
 }
 function addTest() {

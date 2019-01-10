@@ -61,14 +61,16 @@
         </div>
         <div id="content_box">
             <div id="jbxx" style="display: block">
-                <div class="content_box_title">基本信息</div>
-                <div class="information">
+                <div class="content_box_title">基本信息
                     <div style="height: 50px;width: 100%;margin-bottom: 10px;position: relative">
                         <div id="export_div">导入</div>
                         <form action="import.jhtml" method="post" enctype="multipart/form-data">
                             <input type="file" name="file" id="export" onchange="upload()">
                         </form>
                     </div>
+                </div>
+                <div class="information">
+
                     <table id="content_table" style="white-space: nowrap;">
                         <thead>
                         <tr>
