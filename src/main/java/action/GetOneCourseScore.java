@@ -26,12 +26,12 @@ public class GetOneCourseScore extends HttpServlet {
         String courseId = request.getParameter("CourseId"); //课程ID
         String schoolYear = request.getParameter("SchoolYear"); //学年
         int semester = Integer.parseInt(request.getParameter("Semester")); //学期
-
+        System.out.println(courseId+"  "+schoolYear+"  "+semester);
         List<StudentGrade> ls =  docDao.getCourseScore(courseId, schoolYear, semester);
 
         JSONArray array = JSONArray.parseArray(JSON.toJSONString(ls));
         JSONObject json = new JSONObject();
-        json.put("result", array);
+        json.put("data", array);
         output(response,json);
 
     }
@@ -42,7 +42,7 @@ public class GetOneCourseScore extends HttpServlet {
         response.setHeader("Cache-Control","no-cache");
         response.setHeader("Pragma","no-cache");
         PrintWriter out = response.getWriter();
-        out.println(json);
+        out.println(json.toJSONString());
         out.flush();
         out.close();
     }

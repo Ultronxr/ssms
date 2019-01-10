@@ -55,9 +55,9 @@
             <div class="navigation_li">
                  <a href="javascript:void(0);" onclick="kcxx_show()">课程信息</a>
             </div>
-            <div class="navigation_li">
-                <a href="javascript:void(0);" onclick="cjxx_show()">成绩信息</a>
-            </div>
+            <%--<div class="navigation_li">--%>
+                <%--<a href="javascript:void(0);" onclick="cjxx_show()">成绩信息</a>--%>
+            <%--</div>--%>
         </div>
         <div id="content_box">
             <div id="jbxx" style="display: block">
@@ -178,7 +178,7 @@
                         <input type="text" class="information_ip" id="sgpa">
                         <div class="block" style="margin-left: 81px;">学生状态</div>
                         <input type="text" class="information_ip" id="sstatus">
-
+                        <button class="ctbutton" style="width: 300px;margin-right: 200px" onclick="search_cj()">查询学生成绩</button>
                     </div>
                 </div>
             </div>
@@ -216,18 +216,42 @@
                         <tr>
                             <th>学号</th>
                             <th>姓名</th>
-                            <th>性别</th>
-                            <th>学生类别</th>
                             <th>学年</th>
                             <th>学期</th>
                             <th>专业</th>
                             <th>班级</th>
-                            <th>学院</th>
+                            <th>学分</th>
                             <th>成绩</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody id="cjBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="grcjxx" style="display: none">
+                <div class="content_box_title">成绩信息</div>
+                <div class="information">
+                    <table id="grcjxx_table" style="white-space: nowrap;">
+                        <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>班级</th>
+                            <th>课程编号</th>
+                            <th>课程名</th>
+                            <th>课程类别</th>
+                            <th>上课老师</th>
+                            <th>学年</th>
+                            <th>学期</th>
+                            <th>学分</th>
+                            <th>成绩</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="grcjBody">
 
                         </tbody>
                     </table>

@@ -6,7 +6,7 @@ var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 var basePath = prePath;
 basePath = prePath + postPath;
 var flag_kc = 0;
-
+var flag_cj = 0;
 function upload() {
     var fileObj = document.getElementById("export").files[0];
     if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
@@ -88,12 +88,14 @@ function jbxx_show() {
     $("#xjxx").css("display","none");
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","none");
+    $("#grcjxx").css("display","none");
 }
 function xjxx_show() {
     $("#jbxx").css("display","none");
     $("#xjxx").css("display","block");
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","none");
+    $("#grcjxx").css("display","none");
 }
 //课程信息的显示
 function kcxx_show() {
@@ -101,55 +103,56 @@ function kcxx_show() {
     $("#xjxx").css("display","none");
     $("#kcxx").css("display","block");
     $("#cjxx").css("display","none");
+    $("#grcjxx").css("display","none");
     var url = basePath+"/get_all_courses";
-    if(flag_kc == 0 ){
-        $('#kcxx_table').DataTable({
-            scrollX: true,
-            //scrollY: "300px",
-            bAutoWidth:true,
-            ajax: url,
-            columns:[
-                {"data":"name"},
-                {"data":"institute"},
-                {"data":"school_year"},
-                {"data":"semester"},
-                {"data":"category"},
-                {"data":"credit"},
-                {"data":"teacher"},
-                {"data":"class_time"},
-                {"data":"class_place"}
-            ],
-            language:{
-                oPaginate:{
-                    sFirst:"首页",
-                    sPrevious:"上一页",
-                    sNext:"下一页",
-                    sLast:"尾页"
-                },
-                sSearch:"搜索",
-                sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
-                sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
-                sLengthMenu: "每页 _MENU_ 项",
-            },
-            bPaginate: true, //翻页按钮
-            bInfo : true, //页脚信息
-            bScrollCollapse : true, //插件高度自适应
-            columnDefs:[{
-                targets:10,
-                data:"null",
-                render:function (data,type,row) {
-                    var id = row.id;
-                    var year = row.school_year;
-                    var semester = row.semester;
-                    console.log(year);
-                    var html = "<a href='javascript:void(0);' onclick='getkcxx("+id+",\""+year+"\","+semester+")' class='table_a' >查看</a>";
-                    return html;
-                }
-            }]
 
-        });
-        flag_kc =1;
-    }
+    $('#kcxx_table').DataTable({
+        scrollX: true,
+        //scrollY: "300px",
+        bAutoWidth:true,
+        ajax: url,
+        bDestroy: true,
+        columns:[
+            {"data":"id"},
+            {"data":"name"},
+            {"data":"institute"},
+            {"data":"school_year"},
+            {"data":"semester"},
+            {"data":"category"},
+            {"data":"credit"},
+            {"data":"teacher"},
+            {"data":"class_time"},
+            {"data":"class_place"}
+        ],
+        language:{
+            oPaginate:{
+                sFirst:"首页",
+                sPrevious:"上一页",
+                sNext:"下一页",
+                sLast:"尾页"
+            },
+            sSearch:"搜索",
+            sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+            sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+            sLengthMenu: "每页 _MENU_ 项",
+        },
+        bPaginate: true, //翻页按钮
+        bInfo : true, //页脚信息
+        bScrollCollapse : true, //插件高度自适应
+        columnDefs:[{
+            targets:10,
+            data:"null",
+            render:function (data,type,row) {
+                var id = row.id;
+                var year = row.school_year;
+                var semester = row.semester;
+                var html = "<a href='javascript:void(0);' onclick='getkcxx("+id+",\""+year+"\","+semester+")' class='table_a' >查看</a>";
+                return html;
+            }
+        }]
+
+    });
+
 
 
 
@@ -231,12 +234,19 @@ function cjxx_show() {
     $("#xjxx").css("display","none");
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","block");
+    $("#grcjxx").css("display","none");
+}
+function grcjxx_show() {
+    $("#jbxx").css("display","none");
+    $("#xjxx").css("display","none");
+    $("#kcxx").css("display","none");
+    $("#cjxx").css("display","none");
+    $("#grcjxx").css("display","block");
 }
 function getxjxx(i) {
     xjxx_show();
     var ele = "tr"+i;
     var tr = document.getElementById(ele);
-    console.log(tr.cells[0].innerHTML);
     $("#sid").val(tr.cells[0].innerHTML);
     $("#sname").val(tr.cells[1].innerHTML);
     $("#sage").val(tr.cells[2].innerHTML);
@@ -261,6 +271,120 @@ function getxjxx(i) {
 function getkcxx(id,year,semester) {
     cjxx_show();
     console.log(id+"   "+year+"   "+semester);
+    var url = basePath+"/get_one_course_score?CourseId="+id+"&SchoolYear="+year+"&Semester="+semester;
+    // $.ajax({
+    //     url:url,
+    //     type:"POST",
+    //     dataType: "JSON",
+    //     success:function (data) {
+    //         console.log(data);
+    //     },
+    //     error:function () {
+    //         alert("获取单门课程信息失败");
+    //     }
+    // });
+
+        $('#cjxx_table').DataTable({
+            scrollX: true,
+            bAutoWidth:true,
+            bDestroy: true,
+            ajax: url,
+            columns:[
+                {"data":"studentId"},
+                {"data":"studentName"},
+                {"data":"schoolYear"},
+                {"data":"semester"},
+                {"data":"major"},
+                {"data":"studentClass"},
+                {"data":"credit"},
+                {"data":"score"},
+
+            ],
+            language:{
+                oPaginate:{
+                    sFirst:"首页",
+                    sPrevious:"上一页",
+                    sNext:"下一页",
+                    sLast:"尾页"
+                },
+                sSearch:"搜索",
+                sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+                sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+                sLengthMenu: "每页 _MENU_ 项",
+            },
+            bPaginate: true, //翻页按钮
+            bInfo : true, //页脚信息
+            bScrollCollapse : true, //插件高度自适应
+            columnDefs:[{
+                targets:8,
+                data:"null",
+                render:function (data,type,row) {
+                    var html = "<a href='javascript:void(0);' onclick='' class='table_a' >查看</a>";
+                    return html;
+                }
+            }]
+        });
+        flag_cj = 1;
 
 
+}
+
+function search_cj() {
+    var id = $("#sid").val();
+    console.log(id);
+    grcjxx_show();
+    var url = basePath +"/get_score_by_student?studentId="+id;
+    // $.ajax({
+    //     url:url,
+    //     type:"POST",
+    //     dataType: "JSON",
+    //     success:function (data) {
+    //         console.log(data);
+    //     },
+    //     error:function () {
+    //         alert("获取单门课程信息失败");
+    //     }
+    // });
+    $('#grcjxx_table').DataTable({
+        scrollX: true,
+        bAutoWidth:true,
+        bDestroy: true,
+        ajax: url,
+        columns:[
+            {"data":"studentId"},
+            {"data":"studentName"},
+            {"data":"studentClass"},
+            {"data":"courseId"},
+            {"data":"courseName"},
+            {"data":"category"},
+            {"data":"teacher"},
+            {"data":"schoolYear"},
+            {"data":"semester"},
+            {"data":"credit"},
+            {"data":"score"},
+        ],
+        language:{
+            oPaginate:{
+                sFirst:"首页",
+                sPrevious:"上一页",
+                sNext:"下一页",
+                sLast:"尾页"
+            },
+            sSearch:"搜索",
+            sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+            sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+            sLengthMenu: "每页 _MENU_ 项",
+        },
+        bPaginate: true, //翻页按钮
+        bInfo : true, //页脚信息
+        bScrollCollapse : true, //插件高度自适应
+        columnDefs:[{
+            targets:11,
+            data:"null",
+            render:function (data,type,row) {
+                var html = "<a href='javascript:void(0);' onclick='' class='table_a' >查看</a>";
+                return html;
+            }
+        }]
+    });
 }

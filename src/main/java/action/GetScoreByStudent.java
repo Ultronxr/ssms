@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/getScoreByStudent")
+@WebServlet("/get_score_by_student")
 public class GetScoreByStudent extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DocDao dd=new DocDaoImpl();
@@ -24,7 +24,7 @@ public class GetScoreByStudent extends HttpServlet {
         List<StudentGrade>list=dd.getGradeByStudent(studentid);
         JSONArray array = JSONArray.parseArray(JSON.toJSONString(list));
         JSONObject json = new JSONObject();
-        json.put("result", array);
+        json.put("data", array);
         output(response,json);
     }
 
@@ -37,7 +37,7 @@ public class GetScoreByStudent extends HttpServlet {
         response.setHeader("Cache-Control","no-cache");
         response.setHeader("Pragma","no-cache");
         PrintWriter out = response.getWriter();
-        out.println(json);
+        out.println(json.toJSONString());
         out.flush();
         out.close();
     }
