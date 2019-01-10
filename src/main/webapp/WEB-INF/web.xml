@@ -98,6 +98,24 @@
     <url-pattern>/del_student</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ExportOnesAllScore</servlet-name>
+    <servlet-class>action.ExportOnesAllScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportOnesAllScore</servlet-name>
+    <url-pattern>/export_ones_all_score</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ExportCourseScore</servlet-name>
+    <servlet-class>action.ExportCourseScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportCourseScore</servlet-name>
+    <url-pattern>/export_course_all_score</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

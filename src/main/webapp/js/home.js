@@ -474,3 +474,28 @@ function del_xjxx_b() {
 function del_xjxx_b_cancel() {
     $("#del_xj").dialog("close");
 }
+function exportOnesScore() {
+    var id = $("#sid").val();
+    $.ajax({
+        type: "post",
+        url: "export_ones_all_score?studentId=" + id,
+        dataType: 'json',
+        error: function (data) {
+            alert("已导出至桌面！");
+        }
+    });
+}
+
+function exportCourseScore() {
+    var id = $("#cid_up").val();
+    var schoolYear = $("#sy_up").val();
+    var semester = $("#sm_up").val();
+    $.ajax({
+        type: "post",
+        url: "export_course_all_score?courseId=" + id + "&schoolYear=" + schoolYear + "&semester=" + semester,
+        dataType: 'json',
+        error: function (data) {
+            alert("已导出至桌面！");
+        }
+    });
+}
