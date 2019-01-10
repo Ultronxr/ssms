@@ -71,6 +71,24 @@
     <url-pattern>/get_one_course_score</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>handlestudentstatus</servlet-name>
+    <servlet-class>action.HandleStudentStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>handlestudentstatus</servlet-name>
+    <url-pattern>/handle_student_status</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getscorebystudent</servlet-name>
+    <servlet-class>action.GetScoreByStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getscorebystudent</servlet-name>
+    <url-pattern>/get_score_by_student</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 
