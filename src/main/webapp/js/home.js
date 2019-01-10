@@ -184,6 +184,7 @@ function kcxx_show() {
                 var year = row.school_year;
                 var semester = row.semester;
                 var html = "<a href='javascript:void(0);' onclick='getkcxx("+id+",\""+year+"\","+semester+")' class='table_a' >查看</a>";
+                //html += "&nbsp;<a href='javascript:void(0);' onclick='del_kc("+id+")' class='table_a'>删除</a>";
                 return html;
             }
         }]
@@ -419,14 +420,14 @@ function search_cj() {
         bPaginate: true, //翻页按钮
         bInfo : true, //页脚信息
         bScrollCollapse : true, //插件高度自适应
-        columnDefs:[{
-            targets:11,
-            data:"null",
-            render:function (data,type,row) {
-                var html = "<a href='javascript:void(0);' onclick='' class='table_a' >查看</a>";
-                return html;
-            }
-        }]
+        // columnDefs:[{
+        //     targets:11,
+        //     data:"null",
+        //     render:function (data,type,row) {
+        //         var html = "<a href='javascript:void(0);' onclick='' class='table_a' >查看</a>";
+        //         return html;
+        //     }
+        // }]
     });
 }
 
@@ -442,27 +443,34 @@ function updatecj(id) {
     $("#sid_up").val(id);
 }
 
-function exportOnesScore() {
-    var id = $("#sid").val();
+function del_xjxx() {
+    $("#del_xj").dialog({
+        title: '删除学生学籍信息',
+        width: '450',
+        height: '220',
+        modal: true,
+        autoOpen: false
+    });
+    $("#del_xj").dialog("open");
+}
+
+// 删除学籍信息
+function del_xjxx_b() {
     $.ajax({
-        type:"post",
-        url:"export_ones_all_score?studentId="+id,
-        dataType:'json',
-        error:function (data) {
-            alert("已导出至桌面！");
+        type: "POST",
+        url: "del_student",
+        data: {sid:$("#sid").val()},
+        success: function (data) {
+            $("#del_xj").dialog("close");
+            alert("删除成功！");
+            location.reload();
+        },
+        error: function (data) {
+            alert("success !");
         }
     });
 }
-function exportCourseScore() {
-    var id = $("#cid_up").val();
-    var schoolYear=$("#sy_up").val();
-    var semester=$("#sm_up").val();
-    $.ajax({
-        type:"post",
-        url:"export_course_all_score?courseId="+id+"&schoolYear="+schoolYear+"&semester="+semester,
-        dataType:'json',
-        error:function (data) {
-            alert("已导出至桌面！");
-        }
-    });
+
+function del_xjxx_b_cancel() {
+    $("#del_xj").dialog("close");
 }

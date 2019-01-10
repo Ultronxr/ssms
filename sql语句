@@ -14,10 +14,10 @@ CREATE TABLE Student(
 	id CHAR(11) NOT NULL PRIMARY KEY,#学号
 	name VARCHAR(255) NOT NULL,#姓名
 	age INT NOT NULL,#年龄
+	sex VARCHAR(10) NOT NULL,#性别
 	institute VARCHAR(255) NOT NULL,#学院
 	major VARCHAR(255) NOT NULL,#专业
-	class VARCHAR(255) NOT NULL,#班级
-	sex VARCHAR(10) NOT NULL,#性别
+	studentClass VARCHAR(255) NOT NULL,#班级
     birthday VARCHAR(255),#出生日期
 	startTime VARCHAR(255) NOT NULL,#入学时间
 	grade varchar(255) NOT NULL, #年级

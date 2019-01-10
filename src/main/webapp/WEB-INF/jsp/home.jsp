@@ -42,7 +42,7 @@
 <body>
     <div class="header">
         <div class="head_txt">学籍信息</div>
-        <div class="logout">登出</div>
+        <div class="logout"><a href="<%=basePath%>" style="text-decoration:none; color:#000000;">登出</a></div>
     </div>
     <div class="ct">
         <div class="navigation">
@@ -131,7 +131,13 @@
             <div id="xjxx" style="display: none">
                 <div class="content_box_title">学籍信息
                     <input type="button" id="update_xjxx" value="修改" class="ctbutton" onclick="update_xjxx_b()">
-                    <input type="button" id="del_xjxx" value="删除" class="ctbutton" onclick="del_xjxx_b()" style="margin-right: 20px">
+                    <input type="button" id="del_xjxx" value="删除" class="ctbutton" onclick="del_xjxx()" style="margin-right: 20px">
+                </div>
+                <div id="del_xj" style="display: none;width: 300px;height: 130px;padding: 20px 10px 20px 10px">
+                    <span style="display:inline-block; float: left;margin-left: 5px;margin-top: 5px;height: 40px;font-size: 20px;color: black;line-height: 40px;margin-left: 20px;">是否删除？请谨慎操作！</span>
+                    <div style="clear:both"></div>
+                    <button class="ctbutton" onclick="del_xjxx_b()" style="float: left;left: 15px;margin-left: 40px;margin-top: 5px">确认</button>
+                    <button class="ctbutton" onclick="del_xjxx_b_cancel()" style="float: left;margin-left: 5px;margin-top: 5px">取消</button>
                 </div>
                 <div class="information">
                     <div class="information_line">
@@ -251,7 +257,7 @@
                             <th>学期</th>
                             <th>学分</th>
                             <th>成绩</th>
-                            <th>操作</th>
+                            <%--<th>操作</th>--%>
                         </tr>
                         </thead>
                         <tbody id="grcjBody">
