@@ -36,7 +36,6 @@
 <%
     List<Student> ls = (ArrayList<Student>)request.getAttribute("StudentInfoList");
     int flag = (int)request.getAttribute("Flag");
-
 %>
 
 <body>
@@ -58,6 +57,9 @@
             <%--<div class="navigation_li">--%>
                 <%--<a href="javascript:void(0);" onclick="cjxx_show()">成绩信息</a>--%>
             <%--</div>--%>
+            <div class="navigation_li">
+                <a href="javascript:void(0);" onclick="xsbb_show()">学生报表</a>
+            </div>
         </div>
         <div id="content_box">
             <div id="jbxx" style="display: block">
@@ -275,6 +277,24 @@
                 <input type="text" id="sm_up" style="display: none">
                 <button class="ctbutton" onclick="update_cjxx_b()" style="float: none;margin-left: 180px;margin-top: 20px">修改</button>
             </div>
+
+
+
+            <div id="xsbb" style="display: none">
+                <div class="content_box_title">学生报表</div>
+                <div id="export_div_xsbb" style="top: 5px" onclick="__REPLACE_ME__()">导出</div>
+                <div class="information">
+                    <table id="xsbb_table" style="white-space: nowrap;">
+                        <thead>
+
+                        </tbody>
+                    </table>
+                    <br/><br/><br/><br/><br/>
+
+                </div>
+            </div>
+
+
         </div>
     </div>
     <div class="footer"></div>

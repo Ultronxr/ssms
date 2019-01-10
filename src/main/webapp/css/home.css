@@ -172,7 +172,7 @@ table td{
 }
 
 /*页数选择*/
-#content_table_length,#kcxx_table_length,#cjxx_table_length，#grcjxx_table_length{
+#content_table_length,#kcxx_table_length,#cjxx_table_length,#grcjxx_table_length,#xsbb_table_length{
     font-size: 20px;
     font-family:"microsoft yahei";
     height: 50px;
@@ -205,9 +205,16 @@ table td{
     border-radius: 10px;
     border: 1px solid #aaaaaa;
 }
+#xsbb_table_length select{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
 
 /*搜索框*/
-#content_table_filter,#kcxx_table_filter,#cjxx_table_filter,#grcjxx_table_filter{
+#content_table_filter,#kcxx_table_filter,#cjxx_table_filter,#grcjxx_table_filter,#xsbb_table_filter{
     font-size: 20px;
     font-family:"microsoft yahei";
     height: 50px;
@@ -242,8 +249,15 @@ table td{
     border-radius: 10px;
     border: 1px solid #aaaaaa;
 }
+#xsbb_table_filter input{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
 /*搜索结果*/
-#content_table_info,#kcxx_table_info,#cjxx_table_info,#grcjxx_table_info{
+#content_table_info,#kcxx_table_info,#cjxx_table_info,#grcjxx_table_info,#xsbb_table_info{
     font-size: 20px;
     font-family:"microsoft yahei";
     margin-top: 10px;
@@ -251,18 +265,18 @@ table td{
 
 
 /*页码*/
-#content_table_paginate,#kcxx_table_paginate,#cjxx_table_paginate,#grcjxx_table_paginate{
+#content_table_paginate,#kcxx_table_paginate,#cjxx_table_paginate,#grcjxx_table_paginate,#xsbb_table_paginate{
     font-size: 20px;
     font-family:"microsoft yahei";
     margin-top: 10px;
 }
 
-#content_table_previous,#content_table_next,#kcxx_table_previous,#kcxx_table_next{
+#content_table_previous,#content_table_next,#kcxx_table_previous,#kcxx_table_next,#xsbb_table_previous{
     border: 1px solid #979797;
     color: #333 !important;
     background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
 }
-#cjxx_table_previous,#cjxx_table_next,#grcjxx_table_previous,#grcjxx_table_next{
+#cjxx_table_previous,#cjxx_table_next,#grcjxx_table_previous,#grcjxx_table_next,#xsbb_table_next{
     border: 1px solid #979797;
     color: #333 !important;
     background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
@@ -281,7 +295,7 @@ table td{
     border-radius: 10px;
     opacity: 0;
 }
-#export_div,#export_div_cj,#export_div_grcj{
+#export_div,#export_div_cj,#export_div_grcj,#export_div_xsbb{
     line-height:50px ;
     width: 80px;
     position: absolute;

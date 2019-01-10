@@ -126,6 +126,7 @@ function jbxx_show() {
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","none");
     $("#grcjxx").css("display","none");
+    $("#xsbb").css("display","none");
 }
 function xjxx_show() {
     $("#jbxx").css("display","none");
@@ -133,6 +134,7 @@ function xjxx_show() {
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","none");
     $("#grcjxx").css("display","none");
+    $("#xsbb").css("display","none");
 }
 //课程信息的显示
 function kcxx_show() {
@@ -141,6 +143,7 @@ function kcxx_show() {
     $("#kcxx").css("display","block");
     $("#cjxx").css("display","none");
     $("#grcjxx").css("display","none");
+    $("#xsbb").css("display","none");
     var url = basePath+"/get_all_courses";
 
     $('#kcxx_table').DataTable({
@@ -273,6 +276,7 @@ function cjxx_show() {
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","block");
     $("#grcjxx").css("display","none");
+    $("#xsbb").css("display","none");
 }
 function grcjxx_show() {
     $("#jbxx").css("display","none");
@@ -280,6 +284,7 @@ function grcjxx_show() {
     $("#kcxx").css("display","none");
     $("#cjxx").css("display","none");
     $("#grcjxx").css("display","block");
+    $("#xsbb").css("display","none");
 }
 function getxjxx(i) {
     xjxx_show();
@@ -497,5 +502,60 @@ function exportCourseScore() {
         error: function (data) {
             alert("已导出至桌面！");
         }
+    });
+}
+
+
+function xsbb_show() {
+    $("#jbxx").css("display","none");
+    $("#xjxx").css("display","none");
+    $("#kcxx").css("display","none");
+    $("#cjxx").css("display","none");
+    $("#grcjxx").css("display","none");
+    $("#xsbb").css("display","block");
+
+    var url = basePath+"/__REPLACE_ME__";
+
+    $('#xsbb_table').DataTable({
+        scrollX: true,
+        bAutoWidth:true,
+        bDestroy: true,
+        ajax: url,
+        columns:[
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+            {"data":"__REPLACE_ME__"},
+        ],
+        language:{
+            oPaginate:{
+                sFirst:"首页",
+                sPrevious:"上一页",
+                sNext:"下一页",
+                sLast:"尾页"
+            },
+            sSearch:"搜索",
+            sInfoEmpty: "当前显示第 0 至 0 项，共 0 项",
+            sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
+            sLengthMenu: "每页 _MENU_ 项",
+        },
+        bPaginate: true, //翻页按钮
+        bInfo : true, //页脚信息
+        bScrollCollapse : true, //插件高度自适应
+        // columnDefs:[{
+        //     targets:11,
+        //     data:"null",
+        //     render:function (data,type,row) {
+        //         var html = "<a href='javascript:void(0);' onclick='' class='table_a' >查看</a>";
+        //         return html;
+        //     }
+        // }]
     });
 }
