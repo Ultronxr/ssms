@@ -42,7 +42,7 @@
 <body>
     <div class="header">
         <div class="head_txt">学籍信息</div>
-        <div class="logout">登出</div>
+        <div class="logout"><a href="<%=basePath%>" style="text-decoration:none; color:#000000;">登出</a></div>
     </div>
     <div class="ct">
         <div class="navigation">
