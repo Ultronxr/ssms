@@ -486,7 +486,7 @@ function exportOnesScore() {
         url: "export_ones_all_score?studentId=" + id,
         dataType: 'json',
         error: function (data) {
-            alert("已导出至桌面！");
+            alert("已导出至D盘根目录！");
         }
     });
 }
@@ -500,7 +500,7 @@ function exportCourseScore() {
         url: "export_course_all_score?courseId=" + id + "&schoolYear=" + schoolYear + "&semester=" + semester,
         dataType: 'json',
         error: function (data) {
-            alert("已导出至桌面！");
+            alert("已导出至D盘根目录！");
         }
     });
 }
@@ -510,7 +510,7 @@ function exportBB() {
         url: "export_bb",
         dataType: 'json',
         error: function (data) {
-            alert("已导出至桌面！");
+            alert("已导出至D盘根目录！");
         }
     });
 }
