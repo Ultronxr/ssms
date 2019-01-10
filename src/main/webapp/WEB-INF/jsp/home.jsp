@@ -92,6 +92,8 @@
                         </tr>
                         </thead>
                         <tbody>
+                        </tbody>
+                    <tbody>
                             <%
                                 if(ls != null && flag == 1){
                                     for(int i=0;i<ls.size();i++){
@@ -243,6 +245,17 @@
             scrollX: true,
             //scrollY: "300px",
             bAutoWidth:true,
+
+            // processing: true,
+            // serverSide: true,
+            // sPaginationType: "full_numbers",
+            // sAjaxDataProp: "data", //指定数据源
+            // ajax: "http://localhost:8999/ssms/get_all_students",
+            // columns: [
+            //     {"data": "id"},
+            //     {"data": "name"},
+            // ],
+
         });
 
     } );

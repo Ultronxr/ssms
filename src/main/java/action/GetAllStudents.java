@@ -1,5 +1,8 @@
 package action;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import dao.StudentDao;
 import dao.impl.StudentDaoImpl;
 import entity.Student;
@@ -26,7 +29,14 @@ public class GetAllStudents extends HttpServlet {
 
         request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
         //response.getWriter().write(ToJson.listToJasonString(LS));
-
+        /*JSONArray array = JSONArray.parseArray(JSON.toJSONString(ls));
+        JSONObject json = new JSONObject();
+        json.put("data", array);
+        json.put("sEcho", 1);
+        json.put("iTotalRecords", ls.size());
+        json.put("iTotalDisplayRecords", 2);
+        response.getWriter().write(json.toJSONString());
+        System.out.println(json.toJSONString());*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
