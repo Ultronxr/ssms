@@ -67,7 +67,7 @@ function update_xjxx_b() {
 
     $.ajax({
         type:'post',
-        url:'http://localhost:8999/ssms/updateInfos?Category=UpdateStudentInfo',
+        url:'updateInfos?Category=UpdateStudentInfo',
         //contentType: "json",
         data: jsondata,
         dataType : 'json',
@@ -81,6 +81,39 @@ function update_xjxx_b() {
 
     });
 
+}
+
+function update_cjxx_b(){
+    var student_id = $("#replace_me_1"),
+        course_id = $("#replace_me_2"),
+        score = $("#replace_me_3");
+
+    var reg = "/^[0-9]{1,3}$/";
+    if(!reg.test(score)){
+        alert("请输入1-100之间的数字！");
+        return;
+    }
+    if(score < 0 || score > 100){
+        alert("请输入1-100之间的数字！");
+        return;
+    }
+
+    var jsondata = {student_id:student_id, course_id:course_id, score:score};
+
+    $.ajax({
+        type:'post',
+        url:'updateInfos?Category=UpdateScore',
+        //contentType: "json",
+        data: jsondata,
+        dataType : 'json',
+        async: false,
+        success:function(data){
+            alert("修改成功！");
+        },
+        error:function () {
+            alert("success！");
+        }
+    });
 }
 
 function jbxx_show() {

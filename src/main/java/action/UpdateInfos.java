@@ -28,9 +28,11 @@ public class UpdateInfos extends HttpServlet {
 
         //修改成绩
         if(category.equals("UpdateScore")){
-            String json = request.getParameter("json");
-            List<StudentGrade> list =  JSONObject.parseArray(json, StudentGrade.class);
-            docDao.setCourseGrade(list);
+            String studentId = request.getParameter("studentId");
+            String courseId = request.getParameter("courseId");
+            int score = Integer.parseInt(request.getParameter("score"));
+
+            docDao.setCourseGrade(studentId, courseId, score);
         }
         //修改学生信息
         if(category.equals("UpdateStudentInfo")){

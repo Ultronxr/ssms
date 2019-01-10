@@ -143,7 +143,7 @@ public class DocDaoImpl implements DocDao {
 
 
     @Override
-    public boolean setCourseGrade(List<StudentGrade> list){
+    public boolean setCourseGrade(String studentId, String courseId, int score){
         String sql = "UPDATE StudentCourse SET course_score=?\n" +
                 "WHERE student_id=? and course_id=?";
         Connection con = MysqlUtils.getConnection();
@@ -152,13 +152,10 @@ public class DocDaoImpl implements DocDao {
         try{
             ps = con.prepareStatement(sql);
 
-            for(StudentGrade sg : list){
-                ps.setInt(1, sg.getScore());
-                ps.setString(2, sg.getStudentId());
-                ps.setString(3, sg.getCourseId());
-                int t = ps.executeUpdate();
-                flag += t;
-            }
+            ps.setInt(1, score);
+            ps.setString(2, studentId);
+            ps.setString(3, courseId);
+            flag = ps.executeUpdate();
 
         }catch (SQLException e){
             System.out.println("[x] src.main.java.dao.impl-DocDaoImpl-setCourseGrade 连接数据库出错！");

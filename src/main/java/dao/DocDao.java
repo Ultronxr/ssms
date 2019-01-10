@@ -14,8 +14,8 @@ public interface DocDao {
     //某门课在某一学年、某一学期所有学生的详细成绩
     List<StudentGrade> getCourseScore(String courseId, String schoolYear, int semester);
 
-    //修改某门课所有学生的成绩
-    boolean setCourseGrade(List<StudentGrade> list);
+    //修改某门课某位学生的成绩
+    boolean setCourseGrade(String studentId, String courseId, int score);
 
     //获取课程信息
     List<Course> getCourse();
