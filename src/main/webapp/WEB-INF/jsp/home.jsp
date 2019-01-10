@@ -130,7 +130,7 @@
             </div>
             <div id="xjxx" style="display: none">
                 <div class="content_box_title">学籍信息
-                    <input type="button" id="update_xjxx" value="修改" class="ctbutton">
+                    <input type="button" id="update_xjxx" value="修改" class="ctbutton" onclick="update_xjxx_b()">
                 </div>
                 <div class="information">
                     <div class="information_line">

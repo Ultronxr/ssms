@@ -6,15 +6,7 @@ var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 var basePath = prePath;
 basePath = prePath + postPath;
 var flag = 0;
-$(document).ready(function() {
-    $("td").mousedown(function(e) {
-        console.log(e.which);
-        //右键为3
-        if (3 == e.which) {
-            alert("right click!");
-        }
-    })
-},
+
 function upload() {
     var fileObj = document.getElementById("export").files[0];
     if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
@@ -44,8 +36,11 @@ function upload() {
             alert("导入失败！");
         }
     });
-})
+}
 
+function update_xjxx_b() {
+    
+}
 
 function jbxx_show() {
     $("#jbxx").css("display","block");

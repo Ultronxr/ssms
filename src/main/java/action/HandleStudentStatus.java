@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.Map;
 
 //更新学生状态按钮
-@WebServlet("/handleStudentStatus")
-public class handleStudentStatus extends HttpServlet {
+@WebServlet("/HandleStudentStatus")
+public class HandleStudentStatus extends HttpServlet {
     private List<StudentGrade>list=null;
     public String getGradeById(String id){
         for(StudentGrade sg:list){
