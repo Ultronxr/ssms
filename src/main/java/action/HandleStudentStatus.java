@@ -13,14 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //更新学生状态按钮
 @WebServlet("/handle_student_status")
 public class HandleStudentStatus extends HttpServlet {
+    public class HandleStudent{
+        String id;
+        String name;
+        String studentType;
+        String institute;
+        String Major;
+        String grade;
+        String studentClass;
+        String sex;
+        int num;
+        String result;
+    }
     private List<StudentGrade>list=null;
     public String getGradeById(String id){
         for(StudentGrade sg:list){
@@ -30,11 +39,14 @@ public class HandleStudentStatus extends HttpServlet {
         }
         return null;
     }
+    public StudentGrade getSGById(String id){
+        return null;
+    }
     public boolean isgraduate(String grade){
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
         Date mydate=null;
         Date nowdate=new Date();
-        if(Integer.parseInt(simpleDateFormat.format(nowdate).substring(5,7))>=7 && Integer.parseInt(simpleDateFormat.format(nowdate).substring(0,4))==Integer.parseInt(grade)+4){
+        if(Integer.parseInt(simpleDateFormat.format(nowdate).substring(5,7))>=7 && Integer.parseInt(simpleDateFormat.format(nowdate).substring(0,4))>=Integer.parseInt(grade)+4){
             return true;
         }else{
             return false;
@@ -44,6 +56,7 @@ public class HandleStudentStatus extends HttpServlet {
         //获取所有sc ->list
         DocDao dd=new DocDaoImpl();
         list=dd.getStudentGrade();
+        List<HandleStudent>All=new ArrayList<HandleStudent>();
         //转化map id为key
         Map<String,Integer>id_num=new HashMap<String,Integer>();
         for(StudentGrade sg:list){
@@ -55,6 +68,7 @@ public class HandleStudentStatus extends HttpServlet {
                 id_num.put(sg.getStudentId(),0);
             }
         }
+
         //处理不及格数的学生
         StudentDao sd=new StudentDaoImpl();
         for (String key : id_num.keySet()){
@@ -86,7 +100,6 @@ public class HandleStudentStatus extends HttpServlet {
                 }
             }
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

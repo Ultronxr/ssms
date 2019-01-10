@@ -67,7 +67,7 @@ public class Excel {
         try {
             WritableWorkbook wwb = null;
             // 创建可写入的Excel工作簿
-            File file=new File("E://"+studentId+".xls");
+            File file=new File("D://"+studentId+".xls");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -158,7 +158,7 @@ public class Excel {
         try {
             WritableWorkbook wwb = null;
             // 创建可写入的Excel工作簿
-            File file=new File("E://"+courseId+".xls");
+            File file=new File("D://"+schoolYear+"-"+semester+"-"+courseId+".xls");
             if (!file.exists()) {
                 file.createNewFile();
             }
