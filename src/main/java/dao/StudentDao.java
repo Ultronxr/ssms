@@ -13,7 +13,7 @@ public interface StudentDao {
     //通过年级、专业、班级获取学生信息
     List<Student> getStudentInfoByCon(String grade, String major, String studentClass);
 
-
+    boolean updateStatus(String id,String status);
     boolean insertStudent(Student student);
     boolean updateStudent(Student student);
     boolean delStudentById(String id);

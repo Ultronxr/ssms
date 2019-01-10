@@ -19,7 +19,7 @@ public class DocDaoImpl implements DocDao {
     public List<StudentGrade> getStudentGrade(String studentId, String schoolYear, int semester){
         String sql="SELECT school_year,semester,c.id,c.name,c.category,c.credit,sc.course_score,teacher,s.id,s.name,s.sex,s.type,s.institute,s.major,s.grade,s.studentClass\n" +
                 "FROM Student s,StudentCourse sc,Course c\n" +
-                "WHERE sc.student_id=s.id and c.id=sc.course_id and c.school_year=? and c.semester=? and s.id=?;";
+                "WHERE sc.student_id=s.id and c.id=sc.course_id and school_year=? and semester=? and student_id=? ;";
         Connection con = MysqlUtils.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -59,7 +59,47 @@ public class DocDaoImpl implements DocDao {
         }
         return list;
     }
+    @Override
+    public List<StudentGrade> getStudentGrade(){
+        String sql="SELECT school_year,semester,c.id,c.name,c.category,c.credit,sc.course_score,teacher,s.id,s.name,s.sex,s.type,s.institute,s.major,s.grade,s.studentClass\n" +
+                "FROM Student s,StudentCourse sc,Course c\n" +
+                "WHERE sc.student_id=s.id and c.id=sc.course_id;";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<StudentGrade> list= new ArrayList<>();
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                StudentGrade sg = new StudentGrade();
+                sg.setSchoolYear(rs.getString(1));
+                sg.setSemester(rs.getString(2));
+                sg.setCourseId(rs.getString(3));
+                sg.setCourseName(rs.getString(4));
+                sg.setCategory(rs.getString(5));
+                sg.setCredit(rs.getDouble(6));
+                sg.setScore(rs.getInt(7));
+                sg.setTeacher(rs.getString(8));
+                sg.setStudentId(rs.getString(9));
+                sg.setStudentName(rs.getString(10));
+                sg.setSex(rs.getString(11));
+                sg.setStudentType(rs.getString(12));
+                sg.setInstitute(rs.getString(13));
+                sg.setMajor(rs.getString(14));
+                sg.setGrade(rs.getString(15));
+                sg.setStudentClass(rs.getString(16));
+                list.add(sg);
+            }
 
+        }catch (SQLException e){
+            //e.printStackTrace();
+            System.out.println("[x] src.main.java.dao.impl-DocDaoImpl-getStudentGrade 连接数据库出错！");
+        }finally {
+            MysqlUtils.closeConnection(rs, ps, con);
+        }
+        return list;
+    }
 
     @Override
     public List<StudentGrade> getCourseScore(String courseId, String schoolYear, int semester){

@@ -32,7 +32,7 @@ public class Excel {
                     //第一个是列数，第二个是行数
                     String id=rs.getCell(j++, i).getContents();//默认最左边编号也算一列 所以这里得j++
                     String name=rs.getCell(j++, i).getContents();
-                    String age=rs.getCell(j++, i).getContents();
+                    int age=Integer.parseInt(rs.getCell(j++, i).getContents());
                     String sex=rs.getCell(j++, i).getContents();
                     String insititute=rs.getCell(j++, i).getContents();
                     String major=rs.getCell(j++, i).getContents();
@@ -40,14 +40,14 @@ public class Excel {
                     String birthday=rs.getCell(j++, i).getContents();
                     String startTime=rs.getCell(j++, i).getContents();
                     String grade=rs.getCell(j++, i).getContents();
-                    String credit=rs.getCell(j++, i).getContents();
+                    Double credit=Double.parseDouble(rs.getCell(j++, i).getContents());
                     String status=rs.getCell(j++,i).getContents();
                     String source=rs.getCell(j++, i).getContents();
                     String nationality=rs.getCell(j++, i).getContents();
                     String type=rs.getCell(j++, i).getContents();
                     String politicalStatus=rs.getCell(j++, i).getContents();
-                    String gpa=rs.getCell(j++, i).getContents();
-                    Student st=new Student(id,name,Integer.parseInt(age),sex,insititute,major,studentClass,birthday,startTime,grade,Double.parseDouble(credit),status,source,nationality,type,politicalStatus,Double.parseDouble(gpa));
+                    Double gpa=Double.parseDouble(rs.getCell(j++, i).getContents());
+                    Student st=new Student(id,name,age,sex,insititute,major,studentClass,birthday,startTime,grade,credit,status,source,nationality,type,politicalStatus,gpa);
                     System.out.println(st);
                     list.add(st);
                     //list.add(new Student(Integer.parseInt(id), name, sex, Integer.parseInt(num)));

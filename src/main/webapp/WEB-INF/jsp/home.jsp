@@ -64,7 +64,7 @@
                 <div class="content_box_title">基本信息</div>
                 <div class="information">
                     <div style="height: 50px;width: 100%;margin-bottom: 10px;position: relative">
-                        <div id="export_div">导出</div>
+                        <div id="export_div">导入</div>
                         <form action="import.jhtml" method="post" enctype="multipart/form-data">
                             <input type="file" name="file" id="export" onchange="upload()">
                         </form>
