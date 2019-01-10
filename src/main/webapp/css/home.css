@@ -172,7 +172,7 @@ table td{
 }
 
 /*页数选择*/
-#content_table_length,#kcxx_table_length{
+#content_table_length,#kcxx_table_length,#cjxx_table_length{
     font-size: 20px;
     font-family:"microsoft yahei";
     height: 50px;
@@ -191,9 +191,16 @@ table td{
     border-radius: 10px;
     border: 1px solid #aaaaaa;
 }
+#cjxx_table_length select{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
 
 /*搜索框*/
-#content_table_filter,#kcxx_table_filter{
+#content_table_filter,#kcxx_table_filter,#cjxx_table_filter{
     font-size: 20px;
     font-family:"microsoft yahei";
     height: 50px;
@@ -214,8 +221,15 @@ table td{
     border-radius: 10px;
     border: 1px solid #aaaaaa;
 }
+#cjxx_table_filter input{
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+}
 /*搜索结果*/
-#content_table_info,#kcxx_table_info{
+#content_table_info,#kcxx_table_info,#cjxx_table_info{
     font-size: 20px;
     font-family:"microsoft yahei";
     margin-top: 10px;
@@ -223,13 +237,18 @@ table td{
 
 
 /*页码*/
-#content_table_paginate,#kcxx_table_paginate{
+#content_table_paginate,#kcxx_table_paginate,#cjxx_table_paginate{
     font-size: 20px;
     font-family:"microsoft yahei";
     margin-top: 10px;
 }
 
 #content_table_previous,#content_table_next,#kcxx_table_previous,#kcxx_table_next{
+    border: 1px solid #979797;
+    color: #333 !important;
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+}
+#cjxx_table_previous,#cjxx_table_next{
     border: 1px solid #979797;
     color: #333 !important;
     background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
@@ -279,4 +298,8 @@ table td{
     text-align: center;
     background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
     border-radius: 10px;
+}
+.table_a{
+    text-decoration:none;
+    color: black;
 }

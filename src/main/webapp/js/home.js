@@ -5,7 +5,7 @@ var prePath = strFullPath.substring(0, pos);
 var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
 var basePath = prePath;
 basePath = prePath + postPath;
-var flag = 0;
+var flag_kc = 0;
 
 function upload() {
     var fileObj = document.getElementById("export").files[0];
@@ -39,7 +39,7 @@ function upload() {
 }
 
 function update_xjxx_b() {
-    
+
 }
 
 function jbxx_show() {
@@ -61,7 +61,7 @@ function kcxx_show() {
     $("#kcxx").css("display","block");
     $("#cjxx").css("display","none");
     var url = basePath+"/get_all_courses";
-    if(flag == 0 ){
+    if(flag_kc == 0 ){
         $('#kcxx_table').DataTable({
             scrollX: true,
             //scrollY: "300px",
@@ -90,12 +90,24 @@ function kcxx_show() {
                 sInfo: "当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项",
                 sLengthMenu: "每页 _MENU_ 项",
             },
-            "bPaginate" : true, //翻页按钮
-            "bInfo" : true, //页脚信息
-            "bScrollCollapse" : true, //插件高度自适应
+            bPaginate: true, //翻页按钮
+            bInfo : true, //页脚信息
+            bScrollCollapse : true, //插件高度自适应
+            columnDefs:[{
+                targets:10,
+                data:"null",
+                render:function (data,type,row) {
+                    var id = row.id;
+                    var year = row.school_year;
+                    var semester = row.semester;
+                    console.log(year);
+                    var html = "<a href='javascript:void(0);' onclick='getkcxx("+id+",\""+year+"\","+semester+")' class='table_a' >查看</a>";
+                    return html;
+                }
+            }]
 
         });
-        flag =1;
+        flag_kc =1;
     }
 
 
@@ -205,7 +217,9 @@ function getxjxx(i) {
 }
 
 
-function getkcxx() {
+function getkcxx(id,year,semester) {
     cjxx_show();
+    console.log(id+"   "+year+"   "+semester);
+
 
 }

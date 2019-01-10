@@ -188,6 +188,7 @@
                     <table id="kcxx_table" style="white-space: nowrap;">
                         <thead>
                             <tr>
+                                <th>课程编号</th>
                                 <th>课程名称</th>
                                 <th>学院</th>
                                 <th>开课学年</th>
@@ -197,6 +198,7 @@
                                 <th>教师</th>
                                 <th>上课时间</th>
                                 <th>上课地点</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody id="kcBody">
@@ -208,7 +210,27 @@
             </div>
             <div id="cjxx" style="display: none">
                 <div class="content_box_title">成绩信息</div>
-                <div>
+                <div class="information">
+                    <table id="cjxx_table" style="white-space: nowrap;">
+                        <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>学生类别</th>
+                            <th>学年</th>
+                            <th>学期</th>
+                            <th>专业</th>
+                            <th>班级</th>
+                            <th>学院</th>
+                            <th>成绩</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cjBody">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
