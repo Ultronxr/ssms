@@ -19,6 +19,6 @@ public interface DocDao {
 
     //获取课程信息
     List<Course> getCourse();
-
+    List<StudentGrade> getGradeByStudent(String studentId);
 
 }
