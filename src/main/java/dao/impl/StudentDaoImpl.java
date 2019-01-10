@@ -54,7 +54,6 @@ public class StudentDaoImpl implements StudentDao {
         return student;
     }
 
-
     @Override
     public Student getStudentInfoByName(String name){
         Student student = null;
@@ -218,6 +217,42 @@ public class StudentDaoImpl implements StudentDao {
             MysqlUtils.closeConnection(rs, ps, con);
         }
         return false;
+    }
+
+    @Override
+    public boolean updateStudent(Student student) {
+        //String sql = "REPLACE INTO Student VALUES('16401010222', '方材', 21, '男', '电子与信息', '计科', '162', '1998-01-01', '2016-09-15', '2016', 88, '在读', '浙江', '汉', '普通本科生', '群众', 3.75)";
+        String sql = "REPLACE INTO Student VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        int result = -1;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, student.getId());
+            ps.setString(2, student.getName());
+            ps.setInt(3, student.getAge());
+            ps.setString(4, student.getSex());
+            ps.setString(5, student.getInstitute());
+            ps.setString(6, student.getMajor());
+            ps.setString(7, student.getStudentClass());
+            ps.setString(8, student.getBirthday());
+            ps.setString(9, student.getStartTime());
+            ps.setString(10, student.getGrade());
+            ps.setDouble(11, student.getCredit());
+            ps.setString(12, student.getStatus());
+            ps.setString(13, student.getSource());
+            ps.setString(14, student.getNationality());
+            ps.setString(15, student.getType());
+            ps.setString(16, student.getPoliticalStatus());
+            ps.setDouble(17, student.getGpa());
+            result = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl-updateStudent 修改学生信息时出错！");
+        } finally {
+            MysqlUtils.closeConnection(null, ps, con);
+        }
+        if (result >= 1) return true;
+        else return false;
     }
 
     @Override

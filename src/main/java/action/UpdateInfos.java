@@ -26,13 +26,17 @@ public class UpdateInfos extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String category = request.getParameter("Category");
 
+        //修改成绩
         if(category.equals("UpdateScore")){
-            String json = request.getParameter("list");
+            String json = request.getParameter("json");
             List<StudentGrade> list =  JSONObject.parseArray(json, StudentGrade.class);
             docDao.setCourseGrade(list);
         }
+        //修改学生信息
         if(category.equals("UpdateStudentInfo")){
-
+            String json = request.getParameter("json");
+            Student student = (Student) JSON.parse(json);
+            studentDao.updateStudent(student);
         }
     }
 

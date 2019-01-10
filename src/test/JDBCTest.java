@@ -17,15 +17,9 @@ public class JDBCTest {
 
     public static void main(String[] args){
 
-        DocDao docDao = new DocDaoImpl();
+        Student student = new Student("16401010222", "方材", 21, "男", "电子与信息", "计科", "162", "1998-01-01", "2016-09-15", "2016", 88, "在读", "浙江", "汉", "普通本科生", "群众", 3.75);
+        new StudentDaoImpl().updateStudent(student);
 
-//        List<StudentGrade> list = docDao.getCourseGrade("1120053", "2017-2018", 2);
-//        List<StudentGrade> list1 = docDao.getStudentGrade("16401010222", "2017-2018", 2);
-//
-//        System.out.println(list.get(0).getScore());
-//        System.out.println(list1);
-        List<Course>list =  docDao.getCourse();
-        System.out.println(list);
     }
 
 }

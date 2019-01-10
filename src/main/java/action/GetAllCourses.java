@@ -1,9 +1,10 @@
 package action;
 
-import dao.StudentDao;
+import dao.DocDao;
+import dao.impl.DocDaoImpl;
 import dao.impl.StudentDaoImpl;
+import entity.Course;
 import entity.Student;
-import utils.ToJson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,24 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/get_all_students")
-public class GetAllStudents extends HttpServlet {
+@WebServlet("/get_all_courses")
+public class GetAllCourses extends HttpServlet {
 
-    private StudentDao studentDao = new StudentDaoImpl();
+    private DocDao docDao = new DocDaoImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        List<Student> ls = studentDao.getAllStudent();
-        request.setAttribute("StudentInfoList", ls);
-        request.setAttribute("Flag", 1);
+        List<Course> ls = docDao.getCourse();
+        request.setAttribute("CourseInfoList", ls);
+        request.setAttribute("Flag", 2);
 
         request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(request, response);
-        //response.getWriter().write(ToJson.listToJasonString(LS));
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
-
 }
