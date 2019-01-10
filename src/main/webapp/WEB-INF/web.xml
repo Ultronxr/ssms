@@ -116,6 +116,15 @@
     <url-pattern>/export_course_all_score</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ExportBB</servlet-name>
+    <servlet-class>action.ExportBB</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportBB</servlet-name>
+    <url-pattern>/export_bb</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

@@ -244,4 +244,95 @@ public class Excel {
         }
         return true;
     }
+    public static boolean ExcelForBB(){
+        try {
+            WritableWorkbook wwb = null;
+            // 创建可写入的Excel工作簿
+            File file=new File("D://年度报表.xls");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            //以fileName为文件名来创建一个Workbook
+            wwb = Workbook.createWorkbook(file);
+
+            // 创建工作表
+            WritableSheet ws = wwb.createSheet("Test Shee 1", 0);
+
+            //查询数据库中所有的数据
+            StudentDao sd=new StudentDaoImpl();
+            List<Student> list= sd.getAllStudent();
+            //要插入到的Excel表格的行号，默认从0开始
+            Label labelStudentId= new Label(0, 0, "学号");//表示第
+            Label labelStudentName= new Label(1, 0, "姓名");
+            Label labelStudentAge= new Label(2, 0, "年龄");
+            Label labelSex= new Label(3, 0, "性别");
+            Label labelInstitute=new Label(4,0,"学院");
+            Label labelMajor=new Label(5,0,"专业");
+            Label labelStudentClass=new Label(6,0,"班级");
+            Label labelBirthday=new Label(7,0,"出生日期");
+            Label labelStartTime=new Label(8,0,"入学时间");
+            Label labelGrade=new Label(9,0,"年级");
+            Label labelCredit=new Label(10,0,"已获学分");
+            Label labelType=new Label(11,0,"学生类别");
+            Label labelGpa=new Label(12,0,"gpa");
+            Label labelStatus=new Label(13,0,"学业状态");
+
+            ws.addCell(labelStudentId);
+            ws.addCell(labelStudentName);
+            ws.addCell(labelStudentAge);
+            ws.addCell(labelSex);
+            ws.addCell(labelInstitute);
+            ws.addCell(labelMajor);
+            ws.addCell(labelStudentClass);
+            ws.addCell(labelBirthday);
+            ws.addCell(labelStartTime);
+            ws.addCell(labelGrade);
+            ws.addCell(labelCredit);
+            ws.addCell(labelType);
+            ws.addCell(labelGpa);
+
+            ws.addCell(labelStatus);
+
+            for (int i = 0; i < list.size(); i++) {
+
+                Label L1= new Label(0, i+1, list.get(i).getId()+"");
+                Label L2= new Label(1, i+1, list.get(i).getName()+"");
+                Label L3= new Label(2, i+1, list.get(i).getAge()+"");
+                Label L4= new Label(3, i+1, list.get(i).getSex()+"");
+                Label L5= new Label(4,i+1,list.get(i).getInstitute()+"");
+                Label L6= new Label(5,i+1,list.get(i).getMajor()+"");
+                Label L7= new Label(6,i+1,list.get(i).getStudentClass()+"");
+                Label L8= new Label(7,i+1,list.get(i).getBirthday()+"");
+                Label L9= new Label(8,i+1,list.get(i).getStartTime()+"");
+                Label L10= new Label(9,i+1,list.get(i).getGrade()+"");
+                Label L11= new Label(10,i+1,list.get(i).getCredit()+"");
+                Label L12= new Label(11,i+1,list.get(i).getType()+"");
+                Label L13= new Label(12,i+1,list.get(i).getGpa()+"");
+                Label L14= new Label(13,i+1,list.get(i).getStatus()+"");
+                ws.addCell(L1);
+                ws.addCell(L2);
+                ws.addCell(L3);
+                ws.addCell(L4);
+                ws.addCell(L5);
+                ws.addCell(L6);
+                ws.addCell(L7);
+                ws.addCell(L8);
+                ws.addCell(L9);
+                ws.addCell(L10);
+                ws.addCell(L11);
+                ws.addCell(L12);
+                ws.addCell(L13);
+                ws.addCell(L14);
+            }
+            //写进文档
+            wwb.write();
+            // 关闭Excel工作簿对象
+            wwb.close();
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return true;
+    }
 }

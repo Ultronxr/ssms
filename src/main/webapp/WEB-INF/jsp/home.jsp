@@ -282,7 +282,7 @@
 
             <div id="xsbb" style="display: none">
                 <div class="content_box_title">已选课学生报表</div>
-                <div id="export_div_xsbb" style="top: 5px" onclick="__REPLACE_ME__()">导出</div>
+                <div id="export_div_xsbb" style="top: 5px" onclick="exportBB()">导出</div>
                 <div class="information">
                     <table id="xsbb_table" style="white-space: nowrap;">
                         <thead>

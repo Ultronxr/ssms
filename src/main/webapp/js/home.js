@@ -504,7 +504,16 @@ function exportCourseScore() {
         }
     });
 }
-
+function exportBB() {
+    $.ajax({
+        type: "post",
+        url: "export_bb",
+        dataType: 'json',
+        error: function (data) {
+            alert("已导出至桌面！");
+        }
+    });
+}
 
 function xsbb_show() {
     $("#jbxx").css("display","none");

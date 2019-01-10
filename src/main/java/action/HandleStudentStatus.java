@@ -128,7 +128,11 @@ public class HandleStudentStatus extends HttpServlet {
                     id_num.put(sg.getStudentId(), id_num.get(sg.getStudentId()) + 1);
                 }
             }else{
-                id_num.put(sg.getStudentId(),0);
+                if(sg.getScore()<60) {
+                    id_num.put(sg.getStudentId(),1);
+                }else{
+                    id_num.put(sg.getStudentId(),0);
+                }
             }
         }
         //处理不及格数的学生
