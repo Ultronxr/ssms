@@ -28,12 +28,13 @@ public class handleStudentStatus extends HttpServlet {
                 return sg.getGrade();
             }
         }
+        return null;
     }
     public boolean isgraduate(String grade){
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
         Date mydate=null;
         Date nowdate=new Date();
-        if(Integer.parseInt(simpleDateFormat.format(nowdate).substring(5,7))>=7 && Integer.parseInt(simpleDateFormat.format(nowdate).substring(0,4))==Integer.parseInt(grade())+4){
+        if(Integer.parseInt(simpleDateFormat.format(nowdate).substring(5,7))>=7 && Integer.parseInt(simpleDateFormat.format(nowdate).substring(0,4))==Integer.parseInt(grade)+4){
             return true;
         }else{
             return false;
