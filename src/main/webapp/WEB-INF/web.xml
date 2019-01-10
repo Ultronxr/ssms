@@ -89,6 +89,15 @@
     <url-pattern>/get_score_by_student</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>delStudent</servlet-name>
+    <servlet-class>action.DelStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>delStudent</servlet-name>
+    <url-pattern>/del_student</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

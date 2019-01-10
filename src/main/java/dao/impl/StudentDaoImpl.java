@@ -277,20 +277,45 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean delStudentById(String id){
-        String sql="DELETE FROM Student WHERE id=?";
-        Connection con=MysqlUtils.getConnection();
-        PreparedStatement ps=null;
-        int result = -1;
+        Student student = getStudentInfoById(id);
+        student.setStatus("辍学");
+        String sql2 = "INSERT into DropStudent VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql3 = "DELETE FROM Student WHERE id=?";
+        Connection con = MysqlUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
         try{
-            ps = con.prepareStatement(sql);
-            ps.setString(1, id);
-            result = ps.executeUpdate();
+            ps = con.prepareStatement(sql2);
+            ps.setString(1, student.getId());
+            ps.setString(2, student.getName());
+            ps.setString(3, Integer.toString(student.getAge()));
+            ps.setString(4, student.getSex());
+            ps.setString(5, student.getInstitute());
+            ps.setString(6, student.getMajor());
+            ps.setString(7, student.getStudentClass());
+            ps.setString(8, student.getBirthday());
+            ps.setString(9, student.getStartTime());
+            ps.setString(10, student.getGrade());
+            ps.setString(11, Double.toString(student.getCredit()));
+            ps.setString(12,student.getStatus());
+            ps.setString(13, student.getSource());
+            ps.setString(14, student.getNationality());
+            ps.setString(15, student.getType());
+            ps.setString(16, student.getPoliticalStatus());
+            ps.setString(17, Double.toString(student.getGpa()));
+            ps.executeUpdate();
+
+            ps = con.prepareStatement(sql3);
+            ps.setString(1, student.getId());
+            ps.executeUpdate();
+
         }catch (SQLException e){
-            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl 删除学生出错！");
+            System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl-delStudentById 连接数据库出错！");
+            e.printStackTrace();
         }finally {
-            MysqlUtils.closeConnection(null, ps, con);
+            MysqlUtils.closeConnection(rs, ps, con);
         }
-        if(result >= 1) return true;
-        else return false;
+        return true;
     }
 }
