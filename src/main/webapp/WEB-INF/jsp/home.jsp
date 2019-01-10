@@ -123,8 +123,8 @@
 
                         </tbody>
                     </table>
-                    <button onclick="addTest()">添加测试行</button>
-                    <button onclick="delTest()">删除测试行</button>
+                    <%--<button onclick="addTest()">添加测试行</button>--%>
+                    <%--<button onclick="delTest()">删除测试行</button>--%>
                     <br/><br/><br/><br/><br/><br/>
                 </div>
             </div>

@@ -46,12 +46,12 @@ public class UpdateInfos extends HttpServlet {
                     request.getParameter("sstartTime"),
                     request.getParameter("sgrade"),
                     Double.parseDouble(request.getParameter("scredit")),
+                    request.getParameter("sstatus"),
                     request.getParameter("ssource"),
                     request.getParameter("snationality"),
                     request.getParameter("stype"),
                     request.getParameter("spoliticalStatus"),
-                    request.getParameter("sgpa"),
-                    Double.parseDouble(request.getParameter("sstatus"))
+                    Double.parseDouble(request.getParameter("sgpa"))
             );
             //System.out.println(student.toString());
             studentDao.updateStudent(student);
