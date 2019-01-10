@@ -33,6 +33,7 @@ public class UpdateInfos extends HttpServlet {
             int score = Integer.parseInt(request.getParameter("score"));
 
             docDao.setCourseGrade(studentId, courseId, score);
+            response.getWriter().write("{\"result\":\"1\"}");
         }
         //修改学生信息
         if(category.equals("UpdateStudentInfo")){
