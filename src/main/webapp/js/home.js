@@ -39,6 +39,47 @@ function upload() {
 }
 
 function update_xjxx_b() {
+    var sid = $("#sid").val(),
+        sname = $("#sname").val(),
+        sage = $("#sage").val(),
+        ssex = $("#ssex").val(),
+        sinstitute = $("#sinstitute").val(),
+        smajor = $("#smajor").val(),
+        sclass = $("#sclass").val(),
+        sbirthday = $("#sbirthday").val(),
+        sstartTime = $("#sstartTime").val(),
+        sgrade = $("#sgrade").val(),
+        scredit = $("#scredit").val(),
+        ssource = $("#ssource").val(),
+        snationality = $("#snationality").val(),
+        stype = $("#stype").val(),
+        spoliticalStatus = $("#spoliticalStatus").val(),
+        sgpa = $("#sgpa").val(),
+        sstatus = $("#sstatus").val();
+    
+    if(sid==""||sname==""||sage==""||ssex==""||sinstitute==""||smajor==""||sclass==""||sbirthday==""||sstartTime==""||sgrade==""||scredit==""||ssource==""||snationality==""||stype==""||spoliticalStatus==""||sgpa==""||sstatus==""||
+        sid==null||sname==null||sage==null||ssex==null||sinstitute==null||smajor==null||sclass==null||sbirthday==null||sstartTime==null||sgrade==null||scredit==null||ssource==null||snationality==null||stype==null||spoliticalStatus==null||sgpa==null||sstatus==null){
+        alert("请填写完整所有信息！不能为空！");
+        return;
+    }
+
+    var jsondata = {sid:sid, sname:sname, sage:sage,  ssex :ssex,  sinstitute :sinstitute,  smajor :smajor,  sclass :sclass,  sbirthday :sbirthday,  sstartTime :sstartTime,  sgrade :sgrade,  scredit :scredit,  ssource :ssource,  snationality :snationality,  stype :stype,  spoliticalStatus :spoliticalStatus,  sgpa :sgpa,  sstatus :sstatus};
+
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8999/ssms/updateInfos?Category=UpdateStudentInfo',
+        //contentType: "json",
+        data: jsondata,
+        dataType : 'json',
+        async: false,
+        success:function(data){
+                alert("修改成功！");
+        },
+        error:function () {
+            alert("success！");
+        }
+
+    });
 
 }
 

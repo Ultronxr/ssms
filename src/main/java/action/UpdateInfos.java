@@ -34,9 +34,28 @@ public class UpdateInfos extends HttpServlet {
         }
         //修改学生信息
         if(category.equals("UpdateStudentInfo")){
-            String json = request.getParameter("json");
-            Student student = (Student) JSON.parse(json);
+            Student student = new Student(
+                    request.getParameter("sid"),
+                    request.getParameter("sname"),
+                    Integer.parseInt(request.getParameter("sage")),
+                    request.getParameter("ssex"),
+                    request.getParameter("sinstitute"),
+                    request.getParameter("smajor"),
+                    request.getParameter("sclass"),
+                    request.getParameter("sbirthday"),
+                    request.getParameter("sstartTime"),
+                    request.getParameter("sgrade"),
+                    Double.parseDouble(request.getParameter("scredit")),
+                    request.getParameter("ssource"),
+                    request.getParameter("snationality"),
+                    request.getParameter("stype"),
+                    request.getParameter("spoliticalStatus"),
+                    request.getParameter("sgpa"),
+                    Double.parseDouble(request.getParameter("sstatus"))
+            );
+            //System.out.println(student.toString());
             studentDao.updateStudent(student);
+            response.getWriter().write("{\"result\":\"1\"}");
         }
     }
 
