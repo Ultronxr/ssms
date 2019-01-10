@@ -28,23 +28,64 @@ public class HandleStudentStatus extends HttpServlet {
         String name;
         String studentType;
         String institute;
-        String Major;
+        String major;
         String grade;
         String studentClass;
         String sex;
         int num;
         String result;
+        public HandleStudent(){};
         public HandleStudent(String id, String name, String studentType, String institute, String major, String grade, String studentClass, String sex, int num, String result) {
             this.id = id;
             this.name = name;
             this.studentType = studentType;
             this.institute = institute;
-            Major = major;
+            this.major = major;
             this.grade = grade;
             this.studentClass = studentClass;
             this.sex = sex;
             this.num = num;
             this.result = result;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getStudentType() {
+            return studentType;
+        }
+
+        public String getInstitute() {
+            return institute;
+        }
+
+        public String getMajor() {
+            return major;
+        }
+
+        public String getGrade() {
+            return grade;
+        }
+
+        public String getStudentClass() {
+            return studentClass;
+        }
+
+        public String getSex() {
+            return sex;
+        }
+
+        public int getNum() {
+            return num;
+        }
+
+        public String getResult() {
+            return result;
         }
     }
     private List<StudentGrade>list=null;

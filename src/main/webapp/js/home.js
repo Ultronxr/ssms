@@ -514,7 +514,7 @@ function xsbb_show() {
     $("#grcjxx").css("display","none");
     $("#xsbb").css("display","block");
 
-    var url = basePath+"/__REPLACE_ME__";
+    var url = basePath+"/handle_student_status";
 
     $('#xsbb_table').DataTable({
         scrollX: true,
@@ -522,17 +522,16 @@ function xsbb_show() {
         bDestroy: true,
         ajax: url,
         columns:[
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
-            {"data":"__REPLACE_ME__"},
+            {"data":"id"},
+            {"data":"name"},
+            {"data":"sex"},
+            {"data":"studentType"},
+            {"data":"institute"},
+            {"data":"major"},
+            {"data":"grade"},
+            {"data":"studentClass"},
+            {"data":"num"},
+            {"data":"result"},
         ],
         language:{
             oPaginate:{

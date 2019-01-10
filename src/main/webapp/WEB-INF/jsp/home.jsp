@@ -281,11 +281,25 @@
 
 
             <div id="xsbb" style="display: none">
-                <div class="content_box_title">学生报表</div>
+                <div class="content_box_title">已选课学生报表</div>
                 <div id="export_div_xsbb" style="top: 5px" onclick="__REPLACE_ME__()">导出</div>
                 <div class="information">
                     <table id="xsbb_table" style="white-space: nowrap;">
                         <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>学生类别</th>
+                            <th>学院</th>
+                            <th>专业</th>
+                            <th>年级</th>
+                            <th>班级</th>
+                            <th>挂科数量</th>
+                            <th>处理结果</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
                         </tbody>
                     </table>

@@ -141,7 +141,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean updateStatus(String id, String status) {
-        String sql = "UPDATE FROM Student SET Student.status=? WHERE Student.id=?;";
+        String sql = "UPDATE Student SET status=? WHERE id=?";
         Connection con = MysqlUtils.getConnection();
         PreparedStatement ps = null;
         int result = -1;
@@ -149,9 +149,10 @@ public class StudentDaoImpl implements StudentDao {
             ps = con.prepareStatement(sql);
             ps.setString(1, status);
             ps.setString(2, id);
-            ps.execute();
+            ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("[x] src.main.java.dao.impl-StudentDaoImpl-updateStudent 修改学生状态时出错！");
+            e.printStackTrace();
             return false;
         } finally {
             MysqlUtils.closeConnection(null, ps, con);
