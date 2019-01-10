@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+//获取所有课程信息
 @WebServlet("/get_all_courses")
 public class GetAllCourses extends HttpServlet {
 

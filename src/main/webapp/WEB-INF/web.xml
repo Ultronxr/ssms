@@ -62,6 +62,15 @@
     <url-pattern>/get_all_courses</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>getOneCourseScore</servlet-name>
+    <servlet-class>action.GetOneCourseScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getOneCourseScore</servlet-name>
+    <url-pattern>/get_one_course_score</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

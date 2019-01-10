@@ -62,7 +62,7 @@ public class DocDaoImpl implements DocDao {
 
 
     @Override
-    public List<StudentGrade> getCourseGrade(String courseId, String schoolYear, int semester){
+    public List<StudentGrade> getCourseScore(String courseId, String schoolYear, int semester){
         String sql = "SELECT sc.course_id, c.school_year, c.semester, sc.course_name, s.grade, sc.student_id, s.name, s.major, s.studentClass, sc.course_score, sc.credit\n" +
                 "FROM Student s, StudentCourse sc, Course c\n" +
                 "WHERE sc.student_id=s.id and c.id=sc.course_id and sc.course_id=? and c.school_year=? and c.semester=?\n";
